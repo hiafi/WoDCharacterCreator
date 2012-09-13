@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <armor>
+    <name>Reinforced Clothing</name>
+    <general>1</general>
+    <firearm>0</firearm>
+    <strength>1</strength>
+    <defense>0</defense>
+    <speed>0</speed>
+    <cost>0</cost>
+  </armor>
+</items>

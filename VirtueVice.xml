@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <virtue>
+    <name>Charity</name>
+    <effect>You regain all willpower when you help another peson at the expense of yourself</effect>
+    <description></description>
+  </virtue>
+  <vice>
+    <name>Envy</name>
+    <effect>You regain one point of willpower when you gain something important from a rival or help in harming a rival</effect>
+    <description></description>
+  </vice>
+</items>

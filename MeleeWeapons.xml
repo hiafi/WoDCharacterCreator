@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<weapons>
+  <weapon>
+    <name>Sap</name>
+    <damage>1</damage>
+    <type>b</type>
+    <size>1</size>
+    <cost>1</cost>
+  </weapon>
+</weapons>

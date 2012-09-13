@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<skills>
+  <skill>
+    <name>Academics</name>
+    <type>mental</type>
+    <action>
+      <name>Research</name>
+      <attribute>intelligence</attribute>
+    </action>
+  </skill>
+  
+  <skill>
+    <name>Computer</name>
+    <type>mental</type>
+    <action>
+      <name>Hacking</name>
+      <attribute>intelligence</attribute>
+    </action>
+  </skill>
+  
+  <skill>
+    <name>Crafts</name>
+    <type>mental</type>
+    <action>
+      <name>Create Art</name>
+      <attribute>intelligence</attribute>
+    </action>
+    <action>
+      <name>Repair Item</name>
+      <attribute>dexterity</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Investigation</name>
+    <type>mental</type>
+    <action>
+      <name>Examine Scene</name>
+      <attribute>wits</attribute>
+    </action>
+    <action>
+      <name>Solving Enigma</name>
+      <attribute>intelligence</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Medicine</name>
+    <type>mental</type>
+    <action>
+      <name>Healing Wounds (Field)</name>
+      <attribute>dexterity</attribute>
+    </action>
+    <action>
+      <name>Healing Wounds (Lab)</name>
+      <attribute>intelligence</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Occult</name>
+    <type>mental</type>
+  </skill>
+
+  <skill>
+    <name>Politics</name>
+    <type>mental</type>
+  </skill>
+
+  <skill>
+    <name>Science</name>
+    <type>mental</type>
+  </skill>
+
+  <skill>
+    <name>Athletics</name>
+    <type>physical</type>
+    <action>
+      <name>Climbing</name>
+      <attribute>strength</attribute>
+    </action>
+    <action>
+      <name>Foot Chase</name>
+      <attribute>stamina</attribute>
+    </action>
+    <action>
+      <name>Jumping</name>
+      <attribute>strength</attribute>
+    </action>
+    <action>
+      <name>Throwing</name>
+      <attribute>dexterity</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Brawl</name>
+    <type>physical</type>
+  </skill>
+
+  <skill>
+    <name>Drive</name>
+    <type>physical</type>
+    <action>
+      <name>Vehicle Pursuit</name>
+      <attribute>dexterity</attribute>
+    </action>
+    <action>
+      <name>Vehicle Tailing</name>
+      <attribute>wits</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Firearms</name>
+    <type>physical</type>
+  </skill>
+
+  <skill>
+    <name>Larceny</name>
+    <type>physical</type>
+    <action>
+      <name>Bypass Security System</name>
+      <attribute>dexterity</attribute>
+    </action>
+    <action>
+      <name>Lockpicking</name>
+      <attribute>dexterity</attribute>
+    </action>
+    <action>
+      <name>Sleight of Hand</name>
+      <attribute>dexterity</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Stealth</name>
+    <type>physical</type>
+    <action>
+      <name>Shadowing</name>
+      <attribute>wits</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Survival</name>
+    <type>physical</type>
+    <action>
+      <name>Foraging</name>
+      <attribute>wits</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Weaponry</name>
+    <type>physical</type>
+  </skill>
+
+  <skill>
+    <name>Animal Ken</name>
+    <type>social</type>
+    <action>
+      <name>Animal Training</name>
+      <attribute>composure</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Empathy</name>
+    <type>social</type>
+  </skill>
+
+  <skill>
+    <name>Expression</name>
+    <type>social</type>
+  </skill>
+
+  <skill>
+    <name>Intimidation</name>
+    <type>social</type>
+    <action>
+      <name>Interrogation</name>
+      <attribute>wits</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Persuasion</name>
+    <type>social</type>
+    <action>
+      <name>Cutting a Deal</name>
+      <attribute>manipulation</attribute>
+    </action>
+    <action>
+      <name>Fast-Talk</name>
+      <attribute>manipulation</attribute>
+    </action>
+    <action>
+      <name>Oratory</name>
+      <attribute>presence</attribute>
+    </action>
+    <action>
+      <name>Seduction</name>
+      <attribute>presence</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Socialize</name>
+    <type>social</type>
+    <action>
+      <name>Carousing</name>
+      <attribute>manipulation</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Streetwise</name>
+    <type>social</type>
+    <action>
+      <name>Working the Black Market</name>
+      <attribute>manipulation</attribute>
+    </action>
+  </skill>
+
+  <skill>
+    <name>Subterfuge</name>
+    <type>social</type>
+    <action>
+      <name>Disguise</name>
+      <attribute>wits</attribute>
+    </action>
+  </skill>
+  
+</skills>

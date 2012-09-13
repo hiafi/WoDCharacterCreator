@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<weapons>
+  <firearm>
+    <name>Light Revolver</name>
+    <damage>2</damage>
+    <range>20</range>
+    <clip>6</clip>
+    <strength>2</strength>
+    <size>1</size>
+    <cost>2</cost>
+  </firearm>
+
+  <firearm>
+    <name>Heavy Revolver</name>
+    <damage>3</damage>
+    <range>35</range>
+    <clip>6</clip>
+    <strength>3</strength>
+    <size>1</size>
+    <cost>2</cost>
+  </firearm>
+
+  <firearm>
+    <name>Light Pistol</name>
+    <damage>2</damage>
+    <range>20</range>
+    <clip>17</clip>
+    <strength>2</strength>
+    <size>1</size>
+    <cost>3</cost>
+  </firearm>
+
+  <firearm>
+    <name>Heavy Pistol</name>
+    <damage>3</damage>
+    <range>30</range>
+    <clip>7</clip>
+    <strength>3</strength>
+    <size>1</size>
+    <cost>3</cost>
+  </firearm>
+
+  <firearm>
+    <name>Rifle</name>
+    <damage>5</damage>
+    <range>200</range>
+    <clip>5</clip>
+    <strength>2</strength>
+    <size>3</size>
+    <cost>2</cost>
+  </firearm>
+
+  <firearm>
+    <name>Small SMG</name>
+    <damage>2</damage>
+    <range>25</range>
+    <clip>30</clip>
+    <strength>2</strength>
+    <size>1</size>
+    <cost>3</cost>
+    <autofire />
+  </firearm>
+
+  <firearm>
+    <name>Large SMG</name>
+    <damage>3</damage>
+    <range>50</range>
+    <clip>30</clip>
+    <strength>3</strength>
+    <size>2</size>
+    <cost>3</cost>
+    <autofire />
+  </firearm>
+
+  <firearm>
+    <name>Assault Rifle</name>
+    <damage>4</damage>
+    <range>150</range>
+    <clip>42</clip>
+    <strength>3</strength>
+    <size>3</size>
+    <cost>3</cost>
+    <autofire />
+  </firearm>
+
+  <firearm>
+    <name>Shotgun</name>
+    <damage>4</damage>
+    <range>20</range>
+    <clip>5</clip>
+    <strength>3</strength>
+    <size>2</size>
+    <cost>2</cost>
+  </firearm>
+
+  <firearm>
+    <name>Crossbow</name>
+    <damage>3</damage>
+    <range>40</range>
+    <clip>1</clip>
+    <strength>3</strength>
+    <size>3</size>
+    <cost>3</cost>
+  </firearm>
+</weapons>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<merits>
+  <merit>
+    <name>Common Sense</name>
+    <cost>4</cost>
+    <description>The storyteller can make a Wits + Composure roll once per chapter for your character
+    to see if you are about to embark on a disastrous course of action</description>
+  </merit>
+</merits>
