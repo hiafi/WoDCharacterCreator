@@ -69,6 +69,9 @@ namespace WoDCharacterCreator
         public int skill_spent_physical_dots = 0;
         public int skill_spent_social_dots = 0;
 
+        public int merits_dots = 7;
+        public int merits_spent = 0;
+
         public Character() 
         {
             skill_list = new Dictionary<string, PlayerSkill>();
