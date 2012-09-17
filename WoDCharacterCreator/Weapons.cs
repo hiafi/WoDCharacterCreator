@@ -12,12 +12,15 @@ namespace WoDCharacterCreator
         public int damage;
         public int size;
         public int cost;
+
+
     }
 
     class MeleeWeapon : Weapon
     {
         public string special;
         public DamageType damage_type;
+        public bool brawl = false;
 
         public void setType(string name)
         {
@@ -33,6 +36,15 @@ namespace WoDCharacterCreator
             {
                 this.damage_type = DamageType.Aggriaged;
             }
+        }
+
+        public int get_damage_with_armor(int char_str, int armor_str)
+        {
+            if (char_str < armor_str)
+            {
+                return damage - 1;
+            }
+            return damage;
         }
     }
 

@@ -21,6 +21,11 @@ namespace WoDCharacterCreator
         List<MeleeWeapon> melee_weapon_list;
         List<Armor> armor_list;
 
+        List<MagePath> path_list;
+        List<MageOrder> mage_order_list;
+
+        List<SpellListing> spell_forms;
+
         public charactor_creator()
         {
             InitializeComponent();
@@ -28,8 +33,10 @@ namespace WoDCharacterCreator
             init_skills();
             init_vice_virtues();
             init_combat();
+            init_mage();
             tab_main.TabPages.Remove(mageView);
             tab_main.TabPages.Remove(vampireView);
+            MageSpellList.init();
         }
 
         #region File Functions
@@ -97,14 +104,17 @@ namespace WoDCharacterCreator
 
             if (cb_combat_armor.SelectedIndex >= 0)
             {
-                lbl_combat_armor_melee.Text = String.Format("Melee Dice Pool: {0}", armor_list[cb_combat_armor.SelectedIndex].melee_rating + character.defense);
+                lbl_combat_armor_melee.Text = String.Format("Melee Dice Pool: {0}", armor_list[cb_combat_armor.SelectedIndex].melee_rating + 
+                    character.defense);
                 lbl_combat_armor_firearm.Text = String.Format("Firearms Dice Pool: {0}", armor_list[cb_combat_armor.SelectedIndex].armor_rating_firearm);
             }
 
             if (cb_combat_melee.SelectedIndex >= 0)
             {
                 lbl_combat_melee_damage.Text = String.Format("Damage: {0}", melee_weapon_list[cb_combat_melee.SelectedIndex].damage);
-                lbl_combat_melee_total.Text = String.Format("Total Dice Pool: {0}", melee_weapon_list[cb_combat_melee.SelectedIndex].damage + character.strength + character.skill_list["Weaponry"].total);
+                lbl_combat_melee_total.Text = String.Format("Total Dice Pool: {0}", 
+                    melee_weapon_list[cb_combat_melee.SelectedIndex].damage + character.strength + 
+                    ((melee_weapon_list[cb_combat_melee.SelectedIndex].brawl) ? (character.skill_list["Brawl"].total) : (character.skill_list["Weaponry"].total)));
             }
 
             if (combo_combat_ranged.SelectedIndex >= 0)
@@ -136,6 +146,26 @@ namespace WoDCharacterCreator
             character.presence = (int)num_attr_presence.Value;
             character.manipulation = (int)num_attr_manipulation.Value;
             character.composure = (int)num_attr_composure.Value;
+        }
+
+        private void updateMage()
+        {
+            int index = 0;
+            foreach (Control control in group_mage_arcanas.Controls)
+            {
+                if (control.GetType() == typeof(Label))
+                {
+                    control.Text = String.Format("{0}: {1}", Enum.GetName(typeof(Arcana), index), character.mage.arcana[index].ToString());
+                    index++;
+                }
+            }
+            panel_mage_spells.Controls.Clear();
+            int y = 0;
+            foreach (SpellListing spell in spell_forms)
+            {
+                spell.AddToControls(panel_mage_spells, y);
+                y += SpellListing.total_height;
+            }
         }
 
         #endregion
@@ -315,6 +345,95 @@ namespace WoDCharacterCreator
             updateSkills();
         }
 
+        private void cb_mage_path_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            character.mage.path = path_list[cb_mage_path.SelectedIndex];
+            cb_mage_arcana11.Enabled = true;
+            cb_mage_arcana12.Enabled = true;
+            cb_mage_arcana21.Enabled = true;
+            cb_mage_arcana22.Enabled = true;
+
+            lbl_mage_favored_arcana.Text = String.Format("Favored Arcana: {0}, {1}",
+                Enum.GetName(typeof(Arcana), character.mage.path.arcana1),
+                Enum.GetName(typeof(Arcana), character.mage.path.arcana2));
+
+            lbl_mage_bad_arcana.Text = String.Format("Inferior Arcana: {0}",
+                Enum.GetName(typeof(Arcana), character.mage.path.bad_arcana));
+
+            lbl_mage_favored_atb.Text = String.Format("Favored Attribute: {0}",
+                character.mage.path.bonus_attribute);
+
+        }
+
+        private void cb_mage_order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Globalization.TextInfo cap = new System.Globalization.CultureInfo("en-US", false).TextInfo;
+            MageOrder order = mage_order_list[cb_mage_order.SelectedIndex];
+            lbl_mage_order_spec.Text = String.Format("Rote Specialties\n{0}\n{1}\n{2}\n", 
+                cap.ToTitleCase(order.skill1), cap.ToTitleCase(order.skill2), cap.ToTitleCase(order.skill3));
+        }
+
+        private bool check_arcana()
+        {
+            int count = 0;
+            int target_index1 = (int)character.mage.path.arcana1;
+            int target_index2 = (int)character.mage.path.arcana2;
+                
+            if (cb_mage_arcana21.SelectedIndex == target_index1 ||
+                    cb_mage_arcana21.SelectedIndex == target_index2)
+            {
+                count++;
+            }
+            if (cb_mage_arcana22.SelectedIndex == target_index1 ||
+                cb_mage_arcana22.SelectedIndex == target_index2)
+            {
+                count++;
+            }
+            if (cb_mage_arcana11.SelectedIndex == target_index1 ||
+                cb_mage_arcana11.SelectedIndex == target_index2)
+            {
+                count++;
+            }
+            if (cb_mage_arcana21.SelectedIndex >= 0 &&
+                    cb_mage_arcana22.SelectedIndex >= 0 &&
+                    cb_mage_arcana11.SelectedIndex >= 0 &&
+                    count < 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void cb_mage_arcana_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (character.mage.path != null)
+            {
+                if (check_arcana())
+                {
+                    MessageBox.Show("2 of the top three boxes need to be from your primary arcana");
+                }
+            }
+            for (int i = 0; i < character.mage.arcana.Length; i++)
+            {
+                character.mage.arcana[i] = 0;
+            }
+            List<ComboBox> arc_list = new List<ComboBox>();
+            arc_list.Add(cb_mage_arcana11);
+            arc_list.Add(cb_mage_arcana12);
+            arc_list.Add(cb_mage_arcana21);
+            arc_list.Add(cb_mage_arcana22);
+
+            foreach (ComboBox combo in arc_list)
+            {
+                if (combo.SelectedIndex >= 0)
+                {
+                    character.mage.arcana[combo.SelectedIndex] += Convert.ToInt32(combo.Tag);
+                }
+            }
+            updateMage();
+        }
+
+
         public void updateAttributes(object sender, EventArgs e)
         {
             calc_attribute_dots();
@@ -391,6 +510,8 @@ namespace WoDCharacterCreator
                 weapon.setType(element.GetElementsByTagName("type")[0].InnerText);
                 weapon.size = Convert.ToInt32(element.GetElementsByTagName("size")[0].InnerText);
                 weapon.cost = Convert.ToInt32(element.GetElementsByTagName("cost")[0].InnerText);
+                weapon.brawl = (element.GetElementsByTagName("brawl").Count > 0);
+                if (element.GetElementsByTagName("special").Count > 0) { weapon.special = element.GetElementsByTagName("special")[0].InnerText; };
                 melee_weapon_list.Add(weapon);
                 cb_combat_melee.Items.Add(weapon.name);
             }
@@ -483,6 +604,58 @@ namespace WoDCharacterCreator
             }
 
         }
+
+        private void init_mage()
+        {
+            path_list = new List<MagePath>();
+            path_list.Add(new MagePath("Acanthus", Arcana.Time, Arcana.Fate, Arcana.Forces, "composure"));
+            path_list.Add(new MagePath("Mastigos", Arcana.Space, Arcana.Mind, Arcana.Matter, "resolve"));
+            path_list.Add(new MagePath("Moros", Arcana.Matter, Arcana.Death, Arcana.Spirit, "composure"));
+            path_list.Add(new MagePath("Obrimos", Arcana.Forces, Arcana.Prime, Arcana.Death, "resolve"));
+            path_list.Add(new MagePath("Thyrsus", Arcana.Life, Arcana.Spirit, Arcana.Mind, "composure"));
+
+            mage_order_list = new List<MageOrder>();
+            mage_order_list.Add(new MageOrder("The Adamantine Arrow", "athletics", "intimidation", "medicine"));
+            mage_order_list.Add(new MageOrder("The Free Council", "crafts", "persuasion", "science"));
+            mage_order_list.Add(new MageOrder("The Guardians", "investigation", "stealth", "subterfuge"));
+            mage_order_list.Add(new MageOrder("The Mysterium", "investigation", "occult", "survival"));
+            mage_order_list.Add(new MageOrder("The Silver Ladder", "expression", "persuasion", "subterfuge"));
+
+
+            spell_forms = new List<SpellListing>();
+
+            foreach (MagePath path in path_list)
+            {
+                cb_mage_path.Items.Add(path.name);
+            }
+
+            foreach (MageOrder order in mage_order_list)
+            {
+                cb_mage_order.Items.Add(order.name);
+            }
+
+            Label lbl;
+            int wid = 56;
+            int hei = 16;
+            int y = 20;
+            int lbl_x = 4;
+            
+            foreach (string arcana in Enum.GetNames(typeof(Arcana)))
+            {
+                lbl = new Label();
+                lbl.Text = arcana;
+                lbl.SetBounds(lbl_x, y, wid, hei);
+
+                y += (group_mage_arcanas.Height - 10) / 10;
+                group_mage_arcanas.Controls.Add(lbl);
+
+                cb_mage_arcana21.Items.Add(arcana);
+                cb_mage_arcana22.Items.Add(arcana);
+                cb_mage_arcana11.Items.Add(arcana);
+                cb_mage_arcana12.Items.Add(arcana);
+                
+            }
+        }
         #endregion
 
         private void combo_virtue_SelectedIndexChanged(object sender, EventArgs e)
@@ -495,8 +668,17 @@ namespace WoDCharacterCreator
             lbl_vice_effect.Text = vice_list[combo_vice.SelectedIndex].effect;
         }
 
-        
-
-        
+        private void btn_mage_add_spell_Click(object sender, EventArgs e)
+        {
+            SpellForm form = new SpellForm(character);
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                character.mage.rotes.Add(form.spell);
+                spell_forms.Add(new SpellListing(form.spell, 0, 0));
+                updateMage();
+            }
+            
+            form.Dispose();
+        }
     }
 }

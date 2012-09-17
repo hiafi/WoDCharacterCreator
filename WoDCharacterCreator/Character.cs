@@ -5,9 +5,13 @@ using System.Text;
 
 namespace WoDCharacterCreator
 {
-    class Character
+    public class Character
     {
         string name = "";
+
+        public MageTemplate mage;
+        public VampireTemplate vampire;
+
 
         //attributes
         public int intelligence = 1;
@@ -75,11 +79,37 @@ namespace WoDCharacterCreator
         public Character() 
         {
             skill_list = new Dictionary<string, PlayerSkill>();
+            mage = new MageTemplate();
+            vampire = new VampireTemplate();
         }
 
         public object GetValue(string name)
         {
             return this.GetType().GetField(name).GetValue(this);
         }
+    }
+
+    public class MageTemplate
+    {
+        public MagePath path;
+        public MageOrder order;
+        public int[] arcana;
+
+        public List<MageSpell> rotes;
+
+        public MageTemplate()
+        {
+            rotes = new List<MageSpell>();
+            arcana = new int[Enum.GetValues(typeof(Arcana)).Length];
+            for (int i = 0; i < arcana.Length; i++)
+            {
+                arcana[i] = 0;
+            }
+        }
+    }
+
+    public class VampireTemplate
+    {
+
     }
 }

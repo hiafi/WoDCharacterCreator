@@ -54,6 +54,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MageOrder.cs" />
+    <Compile Include="MagePath.cs" />
+    <Compile Include="MageSpell.cs" />
     <Compile Include="Merit.cs" />
     <Compile Include="MeritWindow.cs">
       <SubType>Form</SubType>
@@ -63,6 +66,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpellForm.Designer.cs">
+      <DependentUpon>SpellForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpellListing.cs" />
     <Compile Include="Weapons.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="VirtueVice.cs" />
@@ -78,6 +88,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SpellForm.resx">
+      <DependentUpon>SpellForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +111,7 @@
     <Content Include="bin\Debug\Skills.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="bin\Debug\Spells.xml" />
     <Content Include="bin\Debug\VirtueVice.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<spells>
+  <death>
+    <spell>
+      <name>Ectoplasmic Shaping</name>
+      <practice>Compelling</practice>
+      <cost>0</cost>
+      <duration>Prolonged (one scene)</duration>
+      <attribute>presence</attribute>
+      <skill>occult</skill>
+      <vulgar />
+      <description>You can alter the form of an ectoplasmic manifestation</description>
+    </spell>
+  </death>
+</spells>

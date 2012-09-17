@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace WoDCharacterCreator
 {
-    enum AttrType {Mental, Physical, Social};
+    public enum AttrType {Mental, Physical, Social};
 
-    class Skill
+    public class Skill
     {
         public string name = "";
         public AttrType type;
@@ -32,7 +32,7 @@ namespace WoDCharacterCreator
         }
     }
 
-    class PlayerSkill : Skill
+    public class PlayerSkill : Skill
     {
         public int rank = 0;
         public int mod = 0;
@@ -56,7 +56,7 @@ namespace WoDCharacterCreator
             }
         }
 
-        public PlayerSkill(string name, AttrType type)
+        public PlayerSkill(string name, AttrType type) : base()
         {
             this.name = name;
             this.type = type;
@@ -64,6 +64,7 @@ namespace WoDCharacterCreator
         }
 
         public PlayerSkill()
+            : base()
         {
             actions = new List<PlayerAction>();
         }
@@ -229,7 +230,7 @@ namespace WoDCharacterCreator
         }
     }
 
-    class ActionTemplate
+    public class ActionTemplate
     {
         public string name = "";
         public string attr_id = "";
@@ -241,7 +242,7 @@ namespace WoDCharacterCreator
         }
     }
 
-    class PlayerAction : ActionTemplate
+    public class PlayerAction : ActionTemplate
     {
         public int parent_rank;
         public int equip;

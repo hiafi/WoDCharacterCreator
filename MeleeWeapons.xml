@@ -7,4 +7,101 @@
     <size>1</size>
     <cost>1</cost>
   </weapon>
+  <weapon>
+    <name>Brass Knuckles</name>
+    <damage>1</damage>
+    <type>b</type>
+    <size>1</size>
+    <cost>1</cost>
+    <brawl />
+  </weapon>
+  <weapon>
+    <name>Club</name>
+    <damage>2</damage>
+    <type>b</type>
+    <size>2</size>
+    <cost>0</cost>
+  </weapon>
+  <weapon>
+    <name>Mace</name>
+    <damage>3</damage>
+    <type>b</type>
+    <size>2</size>
+    <cost>2</cost>
+  </weapon>
+  <weapon>
+    <name>Knife</name>
+    <damage>1</damage>
+    <type>l</type>
+    <size>1</size>
+    <cost>1</cost>
+  </weapon>
+  <weapon>
+    <name>Rapier</name>
+    <damage>2</damage>
+    <type>l</type>
+    <size>2</size>
+    <cost>2</cost>
+    <special>Armor Piercing 1</special>
+  </weapon>
+  <weapon>
+    <name>Sword</name>
+    <damage>3</damage>
+    <type>l</type>
+    <size>2</size>
+    <cost>2</cost>
+  </weapon>
+  <weapon>
+    <name>Katana</name>
+    <damage>3</damage>
+    <type>l</type>
+    <size>2</size>
+    <cost>3</cost>
+    <special>Durability +1</special>
+  </weapon>
+  <weapon>
+    <name>Greatsword</name>
+    <damage>4</damage>
+    <type>l</type>
+    <size>3</size>
+    <cost>3</cost>
+  </weapon>
+  <weapon>
+    <name>Small Ax</name>
+    <damage>2</damage>
+    <type>l</type>
+    <size>1</size>
+    <cost>1</cost>
+  </weapon>
+  <weapon>
+    <name>Large Ax</name>
+    <damage>3</damage>
+    <type>l</type>
+    <size>3</size>
+    <cost>2</cost>
+    <special>9 again</special>
+  </weapon>
+  <weapon>
+    <name>Great Ax</name>
+    <damage>5</damage>
+    <type>l</type>
+    <size>4</size>
+    <cost>3</cost>
+    <special>9 again</special>
+  </weapon>
+  <weapon>
+    <name>Stake</name>
+    <damage>1</damage>
+    <type>l</type>
+    <size>1</size>
+    <cost>0</cost>
+  </weapon>
+  <weapon>
+    <name>Spear</name>
+    <damage>3</damage>
+    <type>l</type>
+    <size>4</size>
+    <cost>1</cost>
+    <special>+1 defense</special>
+  </weapon>
 </weapons>

@@ -124,6 +124,30 @@
             this.lbl_combat_brawl = new System.Windows.Forms.Label();
             this.equipmentView = new System.Windows.Forms.TabPage();
             this.mageView = new System.Windows.Forms.TabPage();
+            this.lbl_mage_order_spec = new System.Windows.Forms.Label();
+            this.lbl_mage_favored_atb = new System.Windows.Forms.Label();
+            this.lbl_mage_bad_arcana = new System.Windows.Forms.Label();
+            this.lbl_mage_favored_arcana = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cb_mage_arcana12 = new System.Windows.Forms.ComboBox();
+            this.cb_mage_arcana11 = new System.Windows.Forms.ComboBox();
+            this.cb_mage_arcana22 = new System.Windows.Forms.ComboBox();
+            this.cb_mage_arcana21 = new System.Windows.Forms.ComboBox();
+            this.panel_mage_spells = new System.Windows.Forms.Panel();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btn_mage_add_spell = new System.Windows.Forms.Button();
+            this.group_mage_arcanas = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.num_mage_gnosis = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cb_mage_order = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cb_mage_path = new System.Windows.Forms.ComboBox();
             this.vampireView = new System.Windows.Forms.TabPage();
             this.gb_derived_stats = new System.Windows.Forms.GroupBox();
             this.derived_stats = new System.Windows.Forms.Panel();
@@ -132,35 +156,6 @@
             this.lbl_stat_init = new System.Windows.Forms.Label();
             this.lbl_stat_defense = new System.Windows.Forms.Label();
             this.lbl_stat_health = new System.Windows.Forms.Label();
-            this.cb_mage_path = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cb_mage_order = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.num_mage_gnosis = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.num_mage_time = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.num_mage_fate = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_mind = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_space = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_death = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_matter = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_force = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_prime = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_life = new System.Windows.Forms.NumericUpDown();
-            this.num_mage_spirit = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.main_menu.SuspendLayout();
             this.tab_main.SuspendLayout();
             this.mainView.SuspendLayout();
@@ -185,21 +180,10 @@
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.mageView.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_mage_gnosis)).BeginInit();
             this.gb_derived_stats.SuspendLayout();
             this.derived_stats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_gnosis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_time)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_fate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_mind)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_space)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_death)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_matter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_force)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_prime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_life)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_spirit)).BeginInit();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_menu
@@ -330,9 +314,9 @@
             this.lbl_vice_effect.Location = new System.Drawing.Point(216, 353);
             this.lbl_vice_effect.MaximumSize = new System.Drawing.Size(175, 300);
             this.lbl_vice_effect.Name = "lbl_vice_effect";
-            this.lbl_vice_effect.Size = new System.Drawing.Size(41, 13);
+            this.lbl_vice_effect.Size = new System.Drawing.Size(16, 13);
             this.lbl_vice_effect.TabIndex = 9;
-            this.lbl_vice_effect.Text = "label10";
+            this.lbl_vice_effect.Text = "   ";
             // 
             // label9
             // 
@@ -345,6 +329,7 @@
             // 
             // combo_vice
             // 
+            this.combo_vice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_vice.FormattingEnabled = true;
             this.combo_vice.Location = new System.Drawing.Point(255, 317);
             this.combo_vice.Name = "combo_vice";
@@ -358,9 +343,9 @@
             this.lbl_virtue_effect.Location = new System.Drawing.Point(20, 353);
             this.lbl_virtue_effect.MaximumSize = new System.Drawing.Size(175, 300);
             this.lbl_virtue_effect.Name = "lbl_virtue_effect";
-            this.lbl_virtue_effect.Size = new System.Drawing.Size(35, 13);
+            this.lbl_virtue_effect.Size = new System.Drawing.Size(19, 13);
             this.lbl_virtue_effect.TabIndex = 6;
-            this.lbl_virtue_effect.Text = "label9";
+            this.lbl_virtue_effect.Text = "    ";
             // 
             // label8
             // 
@@ -373,6 +358,7 @@
             // 
             // combo_virtue
             // 
+            this.combo_virtue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_virtue.FormattingEnabled = true;
             this.combo_virtue.Location = new System.Drawing.Point(61, 317);
             this.combo_virtue.Name = "combo_virtue";
@@ -966,6 +952,7 @@
             // 
             // cb_skill_social
             // 
+            this.cb_skill_social.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_skill_social.FormattingEnabled = true;
             this.cb_skill_social.Items.AddRange(new object[] {
             "Primary",
@@ -979,6 +966,7 @@
             // 
             // cb_skill_physical
             // 
+            this.cb_skill_physical.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_skill_physical.FormattingEnabled = true;
             this.cb_skill_physical.Items.AddRange(new object[] {
             "Primary",
@@ -1001,6 +989,7 @@
             // 
             // cb_skill_mental
             // 
+            this.cb_skill_mental.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_skill_mental.FormattingEnabled = true;
             this.cb_skill_mental.Items.AddRange(new object[] {
             "Primary",
@@ -1146,6 +1135,7 @@
             // 
             // cb_combat_armor
             // 
+            this.cb_combat_armor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_combat_armor.FormattingEnabled = true;
             this.cb_combat_armor.Location = new System.Drawing.Point(73, 24);
             this.cb_combat_armor.Name = "cb_combat_armor";
@@ -1188,7 +1178,7 @@
             // lbl_combat_range_range
             // 
             this.lbl_combat_range_range.AutoSize = true;
-            this.lbl_combat_range_range.Location = new System.Drawing.Point(19, 87);
+            this.lbl_combat_range_range.Location = new System.Drawing.Point(19, 67);
             this.lbl_combat_range_range.Name = "lbl_combat_range_range";
             this.lbl_combat_range_range.Size = new System.Drawing.Size(42, 13);
             this.lbl_combat_range_range.TabIndex = 6;
@@ -1214,6 +1204,7 @@
             // 
             // combo_combat_ranged
             // 
+            this.combo_combat_ranged.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_combat_ranged.FormattingEnabled = true;
             this.combo_combat_ranged.Location = new System.Drawing.Point(73, 19);
             this.combo_combat_ranged.Name = "combo_combat_ranged";
@@ -1253,6 +1244,7 @@
             // 
             // cb_combat_melee
             // 
+            this.cb_combat_melee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_combat_melee.FormattingEnabled = true;
             this.cb_combat_melee.Location = new System.Drawing.Point(73, 22);
             this.cb_combat_melee.Name = "cb_combat_melee";
@@ -1324,8 +1316,23 @@
             // 
             // mageView
             // 
+            this.mageView.Controls.Add(this.lbl_mage_order_spec);
+            this.mageView.Controls.Add(this.lbl_mage_favored_atb);
+            this.mageView.Controls.Add(this.lbl_mage_bad_arcana);
+            this.mageView.Controls.Add(this.lbl_mage_favored_arcana);
+            this.mageView.Controls.Add(this.label23);
+            this.mageView.Controls.Add(this.label22);
+            this.mageView.Controls.Add(this.label21);
+            this.mageView.Controls.Add(this.label20);
+            this.mageView.Controls.Add(this.label19);
+            this.mageView.Controls.Add(this.label18);
+            this.mageView.Controls.Add(this.cb_mage_arcana12);
+            this.mageView.Controls.Add(this.cb_mage_arcana11);
+            this.mageView.Controls.Add(this.cb_mage_arcana22);
+            this.mageView.Controls.Add(this.cb_mage_arcana21);
+            this.mageView.Controls.Add(this.panel_mage_spells);
             this.mageView.Controls.Add(this.groupBox11);
-            this.mageView.Controls.Add(this.groupBox10);
+            this.mageView.Controls.Add(this.group_mage_arcanas);
             this.mageView.Controls.Add(this.label17);
             this.mageView.Controls.Add(this.num_mage_gnosis);
             this.mageView.Controls.Add(this.label16);
@@ -1338,6 +1345,252 @@
             this.mageView.TabIndex = 5;
             this.mageView.Text = "Mage";
             this.mageView.UseVisualStyleBackColor = true;
+            // 
+            // lbl_mage_order_spec
+            // 
+            this.lbl_mage_order_spec.AutoSize = true;
+            this.lbl_mage_order_spec.Location = new System.Drawing.Point(195, 72);
+            this.lbl_mage_order_spec.MaximumSize = new System.Drawing.Size(85, 400);
+            this.lbl_mage_order_spec.Name = "lbl_mage_order_spec";
+            this.lbl_mage_order_spec.Size = new System.Drawing.Size(84, 13);
+            this.lbl_mage_order_spec.TabIndex = 41;
+            this.lbl_mage_order_spec.Text = "Rote Specialties";
+            // 
+            // lbl_mage_favored_atb
+            // 
+            this.lbl_mage_favored_atb.AutoSize = true;
+            this.lbl_mage_favored_atb.Location = new System.Drawing.Point(12, 128);
+            this.lbl_mage_favored_atb.Name = "lbl_mage_favored_atb";
+            this.lbl_mage_favored_atb.Size = new System.Drawing.Size(88, 13);
+            this.lbl_mage_favored_atb.TabIndex = 40;
+            this.lbl_mage_favored_atb.Text = "Favored Attribute";
+            // 
+            // lbl_mage_bad_arcana
+            // 
+            this.lbl_mage_bad_arcana.AutoSize = true;
+            this.lbl_mage_bad_arcana.Location = new System.Drawing.Point(12, 101);
+            this.lbl_mage_bad_arcana.Name = "lbl_mage_bad_arcana";
+            this.lbl_mage_bad_arcana.Size = new System.Drawing.Size(92, 13);
+            this.lbl_mage_bad_arcana.TabIndex = 39;
+            this.lbl_mage_bad_arcana.Text = "Restricted Arcana";
+            // 
+            // lbl_mage_favored_arcana
+            // 
+            this.lbl_mage_favored_arcana.AutoSize = true;
+            this.lbl_mage_favored_arcana.Location = new System.Drawing.Point(12, 72);
+            this.lbl_mage_favored_arcana.Name = "lbl_mage_favored_arcana";
+            this.lbl_mage_favored_arcana.Size = new System.Drawing.Size(83, 13);
+            this.lbl_mage_favored_arcana.TabIndex = 38;
+            this.lbl_mage_favored_arcana.Text = "Favored Arcana";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(12, 185);
+            this.label23.MaximumSize = new System.Drawing.Size(130, 300);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(130, 26);
+            this.label23.TabIndex = 37;
+            this.label23.Text = "Two of the top three need to be in your major arcana";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(35, 172);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 13);
+            this.label22.TabIndex = 36;
+            this.label22.Text = "Select Arcana";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(148, 298);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(40, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "1 Point";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(148, 271);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 13);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "1 Point";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(148, 244);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(45, 13);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "2 Points";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(148, 217);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "2 Points";
+            // 
+            // cb_mage_arcana12
+            // 
+            this.cb_mage_arcana12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mage_arcana12.Enabled = false;
+            this.cb_mage_arcana12.FormattingEnabled = true;
+            this.cb_mage_arcana12.Location = new System.Drawing.Point(15, 295);
+            this.cb_mage_arcana12.Name = "cb_mage_arcana12";
+            this.cb_mage_arcana12.Size = new System.Drawing.Size(121, 21);
+            this.cb_mage_arcana12.TabIndex = 31;
+            this.cb_mage_arcana12.Tag = "1";
+            this.cb_mage_arcana12.SelectedIndexChanged += new System.EventHandler(this.cb_mage_arcana_SelectedIndexChanged);
+            // 
+            // cb_mage_arcana11
+            // 
+            this.cb_mage_arcana11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mage_arcana11.Enabled = false;
+            this.cb_mage_arcana11.FormattingEnabled = true;
+            this.cb_mage_arcana11.Location = new System.Drawing.Point(15, 268);
+            this.cb_mage_arcana11.Name = "cb_mage_arcana11";
+            this.cb_mage_arcana11.Size = new System.Drawing.Size(121, 21);
+            this.cb_mage_arcana11.TabIndex = 30;
+            this.cb_mage_arcana11.Tag = "1";
+            this.cb_mage_arcana11.SelectedIndexChanged += new System.EventHandler(this.cb_mage_arcana_SelectedIndexChanged);
+            // 
+            // cb_mage_arcana22
+            // 
+            this.cb_mage_arcana22.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mage_arcana22.Enabled = false;
+            this.cb_mage_arcana22.FormattingEnabled = true;
+            this.cb_mage_arcana22.Location = new System.Drawing.Point(15, 241);
+            this.cb_mage_arcana22.Name = "cb_mage_arcana22";
+            this.cb_mage_arcana22.Size = new System.Drawing.Size(121, 21);
+            this.cb_mage_arcana22.TabIndex = 29;
+            this.cb_mage_arcana22.Tag = "2";
+            this.cb_mage_arcana22.SelectedIndexChanged += new System.EventHandler(this.cb_mage_arcana_SelectedIndexChanged);
+            // 
+            // cb_mage_arcana21
+            // 
+            this.cb_mage_arcana21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mage_arcana21.Enabled = false;
+            this.cb_mage_arcana21.FormattingEnabled = true;
+            this.cb_mage_arcana21.Location = new System.Drawing.Point(15, 214);
+            this.cb_mage_arcana21.Name = "cb_mage_arcana21";
+            this.cb_mage_arcana21.Size = new System.Drawing.Size(121, 21);
+            this.cb_mage_arcana21.TabIndex = 28;
+            this.cb_mage_arcana21.Tag = "2";
+            this.cb_mage_arcana21.SelectedIndexChanged += new System.EventHandler(this.cb_mage_arcana_SelectedIndexChanged);
+            // 
+            // panel_mage_spells
+            // 
+            this.panel_mage_spells.AutoScroll = true;
+            this.panel_mage_spells.Location = new System.Drawing.Point(358, 51);
+            this.panel_mage_spells.Name = "panel_mage_spells";
+            this.panel_mage_spells.Size = new System.Drawing.Size(416, 409);
+            this.panel_mage_spells.TabIndex = 27;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.btn_mage_add_spell);
+            this.groupBox11.Location = new System.Drawing.Point(349, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(431, 463);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Learned Rotes (Spells)";
+            // 
+            // btn_mage_add_spell
+            // 
+            this.btn_mage_add_spell.Location = new System.Drawing.Point(9, 19);
+            this.btn_mage_add_spell.Name = "btn_mage_add_spell";
+            this.btn_mage_add_spell.Size = new System.Drawing.Size(116, 23);
+            this.btn_mage_add_spell.TabIndex = 0;
+            this.btn_mage_add_spell.Text = "Add Spell";
+            this.btn_mage_add_spell.UseVisualStyleBackColor = true;
+            this.btn_mage_add_spell.Click += new System.EventHandler(this.btn_mage_add_spell_Click);
+            // 
+            // group_mage_arcanas
+            // 
+            this.group_mage_arcanas.Location = new System.Drawing.Point(279, 185);
+            this.group_mage_arcanas.Name = "group_mage_arcanas";
+            this.group_mage_arcanas.Size = new System.Drawing.Size(64, 281);
+            this.group_mage_arcanas.TabIndex = 26;
+            this.group_mage_arcanas.TabStop = false;
+            this.group_mage_arcanas.Text = "Arcana";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(260, 161);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(39, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Gnosis";
+            // 
+            // num_mage_gnosis
+            // 
+            this.num_mage_gnosis.Location = new System.Drawing.Point(305, 159);
+            this.num_mage_gnosis.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.num_mage_gnosis.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.num_mage_gnosis.Name = "num_mage_gnosis";
+            this.num_mage_gnosis.Size = new System.Drawing.Size(38, 20);
+            this.num_mage_gnosis.TabIndex = 4;
+            this.num_mage_gnosis.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(159, 36);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(33, 13);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Order";
+            // 
+            // cb_mage_order
+            // 
+            this.cb_mage_order.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mage_order.FormattingEnabled = true;
+            this.cb_mage_order.Location = new System.Drawing.Point(198, 33);
+            this.cb_mage_order.Name = "cb_mage_order";
+            this.cb_mage_order.Size = new System.Drawing.Size(145, 21);
+            this.cb_mage_order.TabIndex = 2;
+            this.cb_mage_order.SelectedIndexChanged += new System.EventHandler(this.cb_mage_order_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(12, 36);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Path";
+            // 
+            // cb_mage_path
+            // 
+            this.cb_mage_path.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mage_path.FormattingEnabled = true;
+            this.cb_mage_path.Location = new System.Drawing.Point(47, 33);
+            this.cb_mage_path.Name = "cb_mage_path";
+            this.cb_mage_path.Size = new System.Drawing.Size(89, 21);
+            this.cb_mage_path.TabIndex = 0;
+            this.cb_mage_path.SelectedIndexChanged += new System.EventHandler(this.cb_mage_path_SelectedIndexChanged);
             // 
             // vampireView
             // 
@@ -1416,334 +1669,6 @@
             this.lbl_stat_health.TabIndex = 4;
             this.lbl_stat_health.Text = "Health: 6";
             // 
-            // cb_mage_path
-            // 
-            this.cb_mage_path.FormattingEnabled = true;
-            this.cb_mage_path.Location = new System.Drawing.Point(47, 33);
-            this.cb_mage_path.Name = "cb_mage_path";
-            this.cb_mage_path.Size = new System.Drawing.Size(121, 21);
-            this.cb_mage_path.TabIndex = 0;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 36);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Path";
-            // 
-            // cb_mage_order
-            // 
-            this.cb_mage_order.FormattingEnabled = true;
-            this.cb_mage_order.Items.AddRange(new object[] {
-            "The Adamantine Arrow",
-            "The Free Council",
-            "The Guardians of the Veil",
-            "The Mysterium",
-            "The Silver Ladder"});
-            this.cb_mage_order.Location = new System.Drawing.Point(242, 33);
-            this.cb_mage_order.Name = "cb_mage_order";
-            this.cb_mage_order.Size = new System.Drawing.Size(121, 21);
-            this.cb_mage_order.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(203, 36);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(33, 13);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Order";
-            // 
-            // num_mage_gnosis
-            // 
-            this.num_mage_gnosis.Location = new System.Drawing.Point(57, 151);
-            this.num_mage_gnosis.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.num_mage_gnosis.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.num_mage_gnosis.Name = "num_mage_gnosis";
-            this.num_mage_gnosis.Size = new System.Drawing.Size(38, 20);
-            this.num_mage_gnosis.TabIndex = 4;
-            this.num_mage_gnosis.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 153);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Gnosis";
-            // 
-            // num_mage_time
-            // 
-            this.num_mage_time.Location = new System.Drawing.Point(52, 20);
-            this.num_mage_time.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_time.Name = "num_mage_time";
-            this.num_mage_time.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_time.TabIndex = 6;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(16, 22);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(30, 13);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Time";
-            // 
-            // num_mage_fate
-            // 
-            this.num_mage_fate.Location = new System.Drawing.Point(52, 46);
-            this.num_mage_fate.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_fate.Name = "num_mage_fate";
-            this.num_mage_fate.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_fate.TabIndex = 8;
-            // 
-            // num_mage_mind
-            // 
-            this.num_mage_mind.Location = new System.Drawing.Point(52, 72);
-            this.num_mage_mind.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_mind.Name = "num_mage_mind";
-            this.num_mage_mind.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_mind.TabIndex = 9;
-            // 
-            // num_mage_space
-            // 
-            this.num_mage_space.Location = new System.Drawing.Point(52, 98);
-            this.num_mage_space.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_space.Name = "num_mage_space";
-            this.num_mage_space.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_space.TabIndex = 10;
-            // 
-            // num_mage_death
-            // 
-            this.num_mage_death.Location = new System.Drawing.Point(52, 124);
-            this.num_mage_death.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_death.Name = "num_mage_death";
-            this.num_mage_death.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_death.TabIndex = 11;
-            // 
-            // num_mage_matter
-            // 
-            this.num_mage_matter.Location = new System.Drawing.Point(52, 150);
-            this.num_mage_matter.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_matter.Name = "num_mage_matter";
-            this.num_mage_matter.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_matter.TabIndex = 12;
-            // 
-            // num_mage_force
-            // 
-            this.num_mage_force.Location = new System.Drawing.Point(52, 176);
-            this.num_mage_force.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_force.Name = "num_mage_force";
-            this.num_mage_force.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_force.TabIndex = 13;
-            // 
-            // num_mage_prime
-            // 
-            this.num_mage_prime.Location = new System.Drawing.Point(52, 202);
-            this.num_mage_prime.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_prime.Name = "num_mage_prime";
-            this.num_mage_prime.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_prime.TabIndex = 14;
-            // 
-            // num_mage_life
-            // 
-            this.num_mage_life.Location = new System.Drawing.Point(52, 228);
-            this.num_mage_life.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_life.Name = "num_mage_life";
-            this.num_mage_life.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_life.TabIndex = 15;
-            // 
-            // num_mage_spirit
-            // 
-            this.num_mage_spirit.Location = new System.Drawing.Point(52, 254);
-            this.num_mage_spirit.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.num_mage_spirit.Name = "num_mage_spirit";
-            this.num_mage_spirit.Size = new System.Drawing.Size(39, 20);
-            this.num_mage_spirit.TabIndex = 16;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 48);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(28, 13);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "Fate";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 74);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 13);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Mind";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(8, 100);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(38, 13);
-            this.label21.TabIndex = 19;
-            this.label21.Text = "Space";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(10, 126);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(36, 13);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "Death";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(9, 152);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 13);
-            this.label23.TabIndex = 21;
-            this.label23.Text = "Matter";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(7, 178);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(39, 13);
-            this.label24.TabIndex = 22;
-            this.label24.Text = "Forces";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(13, 204);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(33, 13);
-            this.label25.TabIndex = 23;
-            this.label25.Text = "Prime";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(22, 230);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(24, 13);
-            this.label26.TabIndex = 24;
-            this.label26.Text = "Life";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(16, 256);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(30, 13);
-            this.label27.TabIndex = 25;
-            this.label27.Text = "Spirit";
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.num_mage_force);
-            this.groupBox10.Controls.Add(this.label27);
-            this.groupBox10.Controls.Add(this.num_mage_time);
-            this.groupBox10.Controls.Add(this.label26);
-            this.groupBox10.Controls.Add(this.label18);
-            this.groupBox10.Controls.Add(this.label25);
-            this.groupBox10.Controls.Add(this.num_mage_fate);
-            this.groupBox10.Controls.Add(this.label24);
-            this.groupBox10.Controls.Add(this.num_mage_mind);
-            this.groupBox10.Controls.Add(this.label23);
-            this.groupBox10.Controls.Add(this.num_mage_space);
-            this.groupBox10.Controls.Add(this.label22);
-            this.groupBox10.Controls.Add(this.num_mage_death);
-            this.groupBox10.Controls.Add(this.label21);
-            this.groupBox10.Controls.Add(this.num_mage_matter);
-            this.groupBox10.Controls.Add(this.label20);
-            this.groupBox10.Controls.Add(this.num_mage_prime);
-            this.groupBox10.Controls.Add(this.label19);
-            this.groupBox10.Controls.Add(this.num_mage_life);
-            this.groupBox10.Controls.Add(this.num_mage_spirit);
-            this.groupBox10.Location = new System.Drawing.Point(15, 182);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(111, 281);
-            this.groupBox10.TabIndex = 26;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Arcana";
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(6, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 438);
-            this.panel1.TabIndex = 27;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.panel1);
-            this.groupBox11.Location = new System.Drawing.Point(369, 3);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(411, 463);
-            this.groupBox11.TabIndex = 0;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Learned Rotes (Spells)";
-            // 
             // charactor_creator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1791,23 +1716,11 @@
             this.groupBox6.PerformLayout();
             this.mageView.ResumeLayout(false);
             this.mageView.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.num_mage_gnosis)).EndInit();
             this.gb_derived_stats.ResumeLayout(false);
             this.derived_stats.ResumeLayout(false);
             this.derived_stats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_gnosis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_time)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_fate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_mind)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_space)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_death)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_matter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_force)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_prime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_life)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_mage_spirit)).EndInit();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1923,31 +1836,26 @@
         private System.Windows.Forms.ComboBox cb_mage_order;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_mage_path;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.NumericUpDown num_mage_gnosis;
+        private System.Windows.Forms.GroupBox group_mage_arcanas;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Panel panel_mage_spells;
+        private System.Windows.Forms.ComboBox cb_mage_arcana12;
+        private System.Windows.Forms.ComboBox cb_mage_arcana11;
+        private System.Windows.Forms.ComboBox cb_mage_arcana22;
+        private System.Windows.Forms.ComboBox cb_mage_arcana21;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown num_mage_spirit;
-        private System.Windows.Forms.NumericUpDown num_mage_life;
-        private System.Windows.Forms.NumericUpDown num_mage_prime;
-        private System.Windows.Forms.NumericUpDown num_mage_force;
-        private System.Windows.Forms.NumericUpDown num_mage_matter;
-        private System.Windows.Forms.NumericUpDown num_mage_death;
-        private System.Windows.Forms.NumericUpDown num_mage_space;
-        private System.Windows.Forms.NumericUpDown num_mage_mind;
-        private System.Windows.Forms.NumericUpDown num_mage_fate;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown num_mage_time;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown num_mage_gnosis;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lbl_mage_bad_arcana;
+        private System.Windows.Forms.Label lbl_mage_favored_arcana;
+        private System.Windows.Forms.Label lbl_mage_order_spec;
+        private System.Windows.Forms.Label lbl_mage_favored_atb;
+        private System.Windows.Forms.Button btn_mage_add_spell;
     }
 }
 

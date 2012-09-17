@@ -5,9 +5,69 @@
     <effect>You regain all willpower when you help another peson at the expense of yourself</effect>
     <description></description>
   </virtue>
+  <virtue>
+    <name>Faith</name>
+    <effect>You regain all willpower when you forge meaning from chaos and tragedy</effect>
+    <description></description>
+  </virtue>
+  <virtue>
+    <name>Fortitude</name>
+    <effect>You regain all willpower when you withstand overwhelming or tempting pressure to alter your goals</effect>
+    <description></description>
+  </virtue>
+  <virtue>
+    <name>Hope</name>
+    <effect>You regain all willpower when you refuse to let others give into despair even though doing so risks harming your own goals</effect>
+    <description></description>
+  </virtue>
+  <virtue>
+    <name>Justice</name>
+    <effect>You regain all willpower when you they do the right thing at the risk of personal loss</effect>
+    <description></description>
+  </virtue>
+  <virtue>
+    <name>Prudence</name>
+    <effect>You regain all willpower when you refuse a tempting course of action by which they could gain significantly</effect>
+    <description></description>
+  </virtue>
+  <virtue>
+    <name>Temperance</name>
+    <effect>You regain all willpower when you resist a temptation to indulge in an excess of any behavior whether good or bad</effect>
+    <description></description>
+  </virtue>
   <vice>
     <name>Envy</name>
     <effect>You regain one point of willpower when you gain something important from a rival or help in harming a rival</effect>
+    <description></description>
+  </vice>
+  <vice>
+    <name>Gluttony</name>
+    <effect>You regain one point of willpower when you indulge in your addiction or appetites at some risk to yourself or a loved one</effect>
+    <description></description>
+  </vice>
+  <vice>
+    <name>Greed</name>
+    <effect>You regain one point of willpower when you acquire something at the expense of another, gaining it must come at some potential risk</effect>
+    <description></description>
+  </vice>
+  <vice>
+    <name>Lust</name>
+    <effect>You regain one point of willpower when you are consumed by a passion for something</effect>
+    <description></description>
+  </vice>
+  <vice>
+    <name>Pride</name>
+    <effect>You regain one point of willpower when you exert your own wants over others at some potential risk to yourself</effect>
+    <description></description>
+  </vice>
+  <vice>
+    <name>Sloth</name>
+    <effect>You regain one point of willpower when you successfully avoid a difficult task but achives the same goal</effect>
+    <description></description>
+  </vice>
+  <vice>
+    <name>Wrath</name>
+    <effect>You regain one point of willpower when you unleash your anger in a situation where doing so is dangerous</effect>
     <description></description>
   </vice>
 </items>
