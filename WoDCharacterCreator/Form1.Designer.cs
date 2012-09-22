@@ -101,6 +101,9 @@
             this.cb_show_actions = new System.Windows.Forms.CheckBox();
             this.skillsContainer = new System.Windows.Forms.Panel();
             this.meritView = new System.Windows.Forms.TabPage();
+            this.lbl_merits = new System.Windows.Forms.Label();
+            this.panel_merit_merits = new System.Windows.Forms.Panel();
+            this.btn_merit_add = new System.Windows.Forms.Button();
             this.combatView = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.lbl_combat_armor_firearm = new System.Windows.Forms.Label();
@@ -124,6 +127,7 @@
             this.lbl_combat_brawl = new System.Windows.Forms.Label();
             this.equipmentView = new System.Windows.Forms.TabPage();
             this.mageView = new System.Windows.Forms.TabPage();
+            this.lbl_mage_merits = new System.Windows.Forms.Label();
             this.lbl_mage_order_spec = new System.Windows.Forms.Label();
             this.lbl_mage_favored_atb = new System.Windows.Forms.Label();
             this.lbl_mage_bad_arcana = new System.Windows.Forms.Label();
@@ -149,6 +153,17 @@
             this.label15 = new System.Windows.Forms.Label();
             this.cb_mage_path = new System.Windows.Forms.ComboBox();
             this.vampireView = new System.Windows.Forms.TabPage();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cb_vamp_disc3 = new System.Windows.Forms.ComboBox();
+            this.cb_vamp_disc2 = new System.Windows.Forms.ComboBox();
+            this.cb_vamp_disc1 = new System.Windows.Forms.ComboBox();
+            this.num_vamp_blood_potency = new System.Windows.Forms.NumericUpDown();
+            this.cb_vamp_covenant = new System.Windows.Forms.ComboBox();
+            this.cb_vamp_clan = new System.Windows.Forms.ComboBox();
             this.gb_derived_stats = new System.Windows.Forms.GroupBox();
             this.derived_stats = new System.Windows.Forms.Panel();
             this.lbl_stat_willpower = new System.Windows.Forms.Label();
@@ -156,6 +171,12 @@
             this.lbl_stat_init = new System.Windows.Forms.Label();
             this.lbl_stat_defense = new System.Windows.Forms.Label();
             this.lbl_stat_health = new System.Windows.Forms.Label();
+            this.panel_vamp_powers = new System.Windows.Forms.Panel();
+            this.lbl_vamp_clan = new System.Windows.Forms.Label();
+            this.lbl_vamp_covenant = new System.Windows.Forms.Label();
+            this.generateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menu.SuspendLayout();
             this.tab_main.SuspendLayout();
             this.mainView.SuspendLayout();
@@ -174,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_attr_strength)).BeginInit();
             this.skillsView.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.meritView.SuspendLayout();
             this.combatView.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -182,6 +204,8 @@
             this.mageView.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_mage_gnosis)).BeginInit();
+            this.vampireView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_vamp_blood_potency)).BeginInit();
             this.gb_derived_stats.SuspendLayout();
             this.derived_stats.SuspendLayout();
             this.SuspendLayout();
@@ -189,7 +213,8 @@
             // main_menu
             // 
             this.main_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.generateReportToolStripMenuItem});
             this.main_menu.Location = new System.Drawing.Point(0, 0);
             this.main_menu.Name = "main_menu";
             this.main_menu.Size = new System.Drawing.Size(972, 24);
@@ -275,7 +300,6 @@
             // rb_show_vampire
             // 
             this.rb_show_vampire.AutoSize = true;
-            this.rb_show_vampire.Enabled = false;
             this.rb_show_vampire.Location = new System.Drawing.Point(142, 35);
             this.rb_show_vampire.Name = "rb_show_vampire";
             this.rb_show_vampire.Size = new System.Drawing.Size(63, 17);
@@ -882,6 +906,7 @@
             this.input_Name.Name = "input_Name";
             this.input_Name.Size = new System.Drawing.Size(176, 20);
             this.input_Name.TabIndex = 0;
+            this.input_Name.TextChanged += new System.EventHandler(this.updateAttributes);
             // 
             // skillsView
             // 
@@ -1082,12 +1107,41 @@
             // 
             // meritView
             // 
+            this.meritView.Controls.Add(this.lbl_merits);
+            this.meritView.Controls.Add(this.panel_merit_merits);
+            this.meritView.Controls.Add(this.btn_merit_add);
             this.meritView.Location = new System.Drawing.Point(4, 22);
             this.meritView.Name = "meritView";
             this.meritView.Size = new System.Drawing.Size(783, 472);
             this.meritView.TabIndex = 2;
             this.meritView.Text = "Merits";
             this.meritView.UseVisualStyleBackColor = true;
+            // 
+            // lbl_merits
+            // 
+            this.lbl_merits.AutoSize = true;
+            this.lbl_merits.Location = new System.Drawing.Point(125, 13);
+            this.lbl_merits.Name = "lbl_merits";
+            this.lbl_merits.Size = new System.Drawing.Size(38, 13);
+            this.lbl_merits.TabIndex = 2;
+            this.lbl_merits.Text = "Merits:";
+            // 
+            // panel_merit_merits
+            // 
+            this.panel_merit_merits.Location = new System.Drawing.Point(8, 37);
+            this.panel_merit_merits.Name = "panel_merit_merits";
+            this.panel_merit_merits.Size = new System.Drawing.Size(763, 426);
+            this.panel_merit_merits.TabIndex = 1;
+            // 
+            // btn_merit_add
+            // 
+            this.btn_merit_add.Location = new System.Drawing.Point(8, 8);
+            this.btn_merit_add.Name = "btn_merit_add";
+            this.btn_merit_add.Size = new System.Drawing.Size(75, 23);
+            this.btn_merit_add.TabIndex = 0;
+            this.btn_merit_add.Text = "Add Merit";
+            this.btn_merit_add.UseVisualStyleBackColor = true;
+            this.btn_merit_add.Click += new System.EventHandler(this.btn_merit_add_Click);
             // 
             // combatView
             // 
@@ -1316,6 +1370,7 @@
             // 
             // mageView
             // 
+            this.mageView.Controls.Add(this.lbl_mage_merits);
             this.mageView.Controls.Add(this.lbl_mage_order_spec);
             this.mageView.Controls.Add(this.lbl_mage_favored_atb);
             this.mageView.Controls.Add(this.lbl_mage_bad_arcana);
@@ -1345,6 +1400,15 @@
             this.mageView.TabIndex = 5;
             this.mageView.Text = "Mage";
             this.mageView.UseVisualStyleBackColor = true;
+            // 
+            // lbl_mage_merits
+            // 
+            this.lbl_mage_merits.AutoSize = true;
+            this.lbl_mage_merits.Location = new System.Drawing.Point(260, 139);
+            this.lbl_mage_merits.Name = "lbl_mage_merits";
+            this.lbl_mage_merits.Size = new System.Drawing.Size(62, 13);
+            this.lbl_mage_merits.TabIndex = 42;
+            this.lbl_mage_merits.Text = "Merits Left: ";
             // 
             // lbl_mage_order_spec
             // 
@@ -1516,9 +1580,9 @@
             // 
             // group_mage_arcanas
             // 
-            this.group_mage_arcanas.Location = new System.Drawing.Point(279, 185);
+            this.group_mage_arcanas.Location = new System.Drawing.Point(263, 185);
             this.group_mage_arcanas.Name = "group_mage_arcanas";
-            this.group_mage_arcanas.Size = new System.Drawing.Size(64, 281);
+            this.group_mage_arcanas.Size = new System.Drawing.Size(80, 281);
             this.group_mage_arcanas.TabIndex = 26;
             this.group_mage_arcanas.TabStop = false;
             this.group_mage_arcanas.Text = "Arcana";
@@ -1553,6 +1617,7 @@
             0,
             0,
             0});
+            this.num_mage_gnosis.ValueChanged += new System.EventHandler(this.updateMage);
             // 
             // label16
             // 
@@ -1594,12 +1659,145 @@
             // 
             // vampireView
             // 
+            this.vampireView.Controls.Add(this.lbl_vamp_covenant);
+            this.vampireView.Controls.Add(this.lbl_vamp_clan);
+            this.vampireView.Controls.Add(this.panel_vamp_powers);
+            this.vampireView.Controls.Add(this.label28);
+            this.vampireView.Controls.Add(this.label27);
+            this.vampireView.Controls.Add(this.label26);
+            this.vampireView.Controls.Add(this.label25);
+            this.vampireView.Controls.Add(this.label24);
+            this.vampireView.Controls.Add(this.cb_vamp_disc3);
+            this.vampireView.Controls.Add(this.cb_vamp_disc2);
+            this.vampireView.Controls.Add(this.cb_vamp_disc1);
+            this.vampireView.Controls.Add(this.num_vamp_blood_potency);
+            this.vampireView.Controls.Add(this.cb_vamp_covenant);
+            this.vampireView.Controls.Add(this.cb_vamp_clan);
             this.vampireView.Location = new System.Drawing.Point(4, 22);
             this.vampireView.Name = "vampireView";
             this.vampireView.Size = new System.Drawing.Size(783, 472);
             this.vampireView.TabIndex = 6;
             this.vampireView.Text = "Vampire";
             this.vampireView.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(16, 236);
+            this.label28.MaximumSize = new System.Drawing.Size(130, 300);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(127, 26);
+            this.label28.TabIndex = 38;
+            this.label28.Text = "Two of the three need to be clan disciplines";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(45, 223);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(57, 13);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "Disciplines";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 190);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(76, 13);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Blood Potency";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(164, 41);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(53, 13);
+            this.label25.TabIndex = 7;
+            this.label25.Text = "Covenant";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(16, 41);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(28, 13);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Clan";
+            // 
+            // cb_vamp_disc3
+            // 
+            this.cb_vamp_disc3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_vamp_disc3.FormattingEnabled = true;
+            this.cb_vamp_disc3.Location = new System.Drawing.Point(19, 319);
+            this.cb_vamp_disc3.Name = "cb_vamp_disc3";
+            this.cb_vamp_disc3.Size = new System.Drawing.Size(121, 21);
+            this.cb_vamp_disc3.TabIndex = 5;
+            this.cb_vamp_disc3.SelectedIndexChanged += new System.EventHandler(this.cb_vamp_disc_SelectedIndexChanged);
+            // 
+            // cb_vamp_disc2
+            // 
+            this.cb_vamp_disc2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_vamp_disc2.FormattingEnabled = true;
+            this.cb_vamp_disc2.Location = new System.Drawing.Point(19, 292);
+            this.cb_vamp_disc2.Name = "cb_vamp_disc2";
+            this.cb_vamp_disc2.Size = new System.Drawing.Size(121, 21);
+            this.cb_vamp_disc2.TabIndex = 4;
+            this.cb_vamp_disc2.SelectedIndexChanged += new System.EventHandler(this.cb_vamp_disc_SelectedIndexChanged);
+            // 
+            // cb_vamp_disc1
+            // 
+            this.cb_vamp_disc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_vamp_disc1.FormattingEnabled = true;
+            this.cb_vamp_disc1.Location = new System.Drawing.Point(19, 265);
+            this.cb_vamp_disc1.Name = "cb_vamp_disc1";
+            this.cb_vamp_disc1.Size = new System.Drawing.Size(121, 21);
+            this.cb_vamp_disc1.TabIndex = 3;
+            this.cb_vamp_disc1.SelectedIndexChanged += new System.EventHandler(this.cb_vamp_disc_SelectedIndexChanged);
+            // 
+            // num_vamp_blood_potency
+            // 
+            this.num_vamp_blood_potency.Location = new System.Drawing.Point(98, 188);
+            this.num_vamp_blood_potency.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.num_vamp_blood_potency.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.num_vamp_blood_potency.Name = "num_vamp_blood_potency";
+            this.num_vamp_blood_potency.Size = new System.Drawing.Size(42, 20);
+            this.num_vamp_blood_potency.TabIndex = 2;
+            this.num_vamp_blood_potency.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.num_vamp_blood_potency.ValueChanged += new System.EventHandler(this.updateVamp);
+            // 
+            // cb_vamp_covenant
+            // 
+            this.cb_vamp_covenant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_vamp_covenant.FormattingEnabled = true;
+            this.cb_vamp_covenant.Location = new System.Drawing.Point(223, 38);
+            this.cb_vamp_covenant.Name = "cb_vamp_covenant";
+            this.cb_vamp_covenant.Size = new System.Drawing.Size(136, 21);
+            this.cb_vamp_covenant.TabIndex = 1;
+            this.cb_vamp_covenant.SelectedIndexChanged += new System.EventHandler(this.cb_vamp_covenant_SelectedIndexChanged);
+            // 
+            // cb_vamp_clan
+            // 
+            this.cb_vamp_clan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_vamp_clan.FormattingEnabled = true;
+            this.cb_vamp_clan.Location = new System.Drawing.Point(50, 38);
+            this.cb_vamp_clan.Name = "cb_vamp_clan";
+            this.cb_vamp_clan.Size = new System.Drawing.Size(74, 21);
+            this.cb_vamp_clan.TabIndex = 0;
+            this.cb_vamp_clan.SelectedIndexChanged += new System.EventHandler(this.cb_vamp_clan_SelectedIndexChanged);
             // 
             // gb_derived_stats
             // 
@@ -1669,6 +1867,54 @@
             this.lbl_stat_health.TabIndex = 4;
             this.lbl_stat_health.Text = "Health: 6";
             // 
+            // panel_vamp_powers
+            // 
+            this.panel_vamp_powers.AutoScroll = true;
+            this.panel_vamp_powers.Location = new System.Drawing.Point(365, 3);
+            this.panel_vamp_powers.Name = "panel_vamp_powers";
+            this.panel_vamp_powers.Size = new System.Drawing.Size(415, 466);
+            this.panel_vamp_powers.TabIndex = 39;
+            // 
+            // lbl_vamp_clan
+            // 
+            this.lbl_vamp_clan.AutoSize = true;
+            this.lbl_vamp_clan.Location = new System.Drawing.Point(16, 72);
+            this.lbl_vamp_clan.Name = "lbl_vamp_clan";
+            this.lbl_vamp_clan.Size = new System.Drawing.Size(41, 13);
+            this.lbl_vamp_clan.TabIndex = 40;
+            this.lbl_vamp_clan.Text = "label29";
+            // 
+            // lbl_vamp_covenant
+            // 
+            this.lbl_vamp_covenant.AutoSize = true;
+            this.lbl_vamp_covenant.Location = new System.Drawing.Point(164, 72);
+            this.lbl_vamp_covenant.Name = "lbl_vamp_covenant";
+            this.lbl_vamp_covenant.Size = new System.Drawing.Size(41, 13);
+            this.lbl_vamp_covenant.TabIndex = 41;
+            this.lbl_vamp_covenant.Text = "label29";
+            // 
+            // generateReportToolStripMenuItem
+            // 
+            this.generateReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createTextFileToolStripMenuItem,
+            this.createPDFToolStripMenuItem});
+            this.generateReportToolStripMenuItem.Name = "generateReportToolStripMenuItem";
+            this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.generateReportToolStripMenuItem.Text = "Generate Report";
+            // 
+            // createTextFileToolStripMenuItem
+            // 
+            this.createTextFileToolStripMenuItem.Name = "createTextFileToolStripMenuItem";
+            this.createTextFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createTextFileToolStripMenuItem.Text = "Create Text";
+            this.createTextFileToolStripMenuItem.Click += new System.EventHandler(this.createTextFileToolStripMenuItem_Click);
+            // 
+            // createPDFToolStripMenuItem
+            // 
+            this.createPDFToolStripMenuItem.Name = "createPDFToolStripMenuItem";
+            this.createPDFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createPDFToolStripMenuItem.Text = "Create PDF";
+            // 
             // charactor_creator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1705,6 +1951,8 @@
             this.skillsView.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.meritView.ResumeLayout(false);
+            this.meritView.PerformLayout();
             this.combatView.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -1718,6 +1966,9 @@
             this.mageView.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.num_mage_gnosis)).EndInit();
+            this.vampireView.ResumeLayout(false);
+            this.vampireView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_vamp_blood_potency)).EndInit();
             this.gb_derived_stats.ResumeLayout(false);
             this.derived_stats.ResumeLayout(false);
             this.derived_stats.PerformLayout();
@@ -1856,6 +2107,27 @@
         private System.Windows.Forms.Label lbl_mage_order_spec;
         private System.Windows.Forms.Label lbl_mage_favored_atb;
         private System.Windows.Forms.Button btn_mage_add_spell;
+        private System.Windows.Forms.Label lbl_mage_merits;
+        private System.Windows.Forms.Panel panel_merit_merits;
+        private System.Windows.Forms.Button btn_merit_add;
+        private System.Windows.Forms.Label lbl_merits;
+        private System.Windows.Forms.ComboBox cb_vamp_clan;
+        private System.Windows.Forms.ComboBox cb_vamp_covenant;
+        private System.Windows.Forms.NumericUpDown num_vamp_blood_potency;
+        private System.Windows.Forms.ComboBox cb_vamp_disc3;
+        private System.Windows.Forms.ComboBox cb_vamp_disc2;
+        private System.Windows.Forms.ComboBox cb_vamp_disc1;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Panel panel_vamp_powers;
+        private System.Windows.Forms.Label lbl_vamp_clan;
+        private System.Windows.Forms.Label lbl_vamp_covenant;
+        private System.Windows.Forms.ToolStripMenuItem generateReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createTextFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createPDFToolStripMenuItem;
     }
 }
 

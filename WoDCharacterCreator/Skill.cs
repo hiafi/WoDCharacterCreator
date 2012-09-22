@@ -150,24 +150,24 @@ namespace WoDCharacterCreator
 
         public void UpdateForm(Character character)
         {
-            character.skill_list[this.name].rank = (int)num.Value;
-            mod_form.Text = character.skill_list[this.name].mod.ToString();
-            total_form.Text = character.skill_list[this.name].total.ToString();
-            foreach (PlayerAction action in character.skill_list[this.name].actions)
+            character.skill_list[this.name.ToLower()].rank = (int)num.Value;
+            mod_form.Text = character.skill_list[this.name.ToLower()].mod.ToString();
+            total_form.Text = character.skill_list[this.name.ToLower()].total.ToString();
+            foreach (PlayerAction action in character.skill_list[this.name.ToLower()].actions)
             {
                 action.attr = (int)character.GetValue(action.attr_id);
-                action.parent_rank = character.skill_list[this.name].total;
+                action.parent_rank = character.skill_list[this.name.ToLower()].total;
                 action.equip = 0;
                 action.mod = 0;
             }
 
             for (int i=0; i<this.actions.Count; i++)
             {
-                this.actions[i].attr_form.Text = character.skill_list[this.name].actions[i].attr.ToString();
-                this.actions[i].base_form.Text = character.skill_list[this.name].actions[i].parent_rank.ToString();
-                this.actions[i].equip_form.Text = character.skill_list[this.name].actions[i].equip.ToString();
-                this.actions[i].mod_form.Text = character.skill_list[this.name].actions[i].mod.ToString();
-                this.actions[i].total_form.Text = character.skill_list[this.name].actions[i].total.ToString();
+                this.actions[i].attr_form.Text = character.skill_list[this.name.ToLower()].actions[i].attr.ToString();
+                this.actions[i].base_form.Text = character.skill_list[this.name.ToLower()].actions[i].parent_rank.ToString();
+                this.actions[i].equip_form.Text = character.skill_list[this.name.ToLower()].actions[i].equip.ToString();
+                this.actions[i].mod_form.Text = character.skill_list[this.name.ToLower()].actions[i].mod.ToString();
+                this.actions[i].total_form.Text = character.skill_list[this.name.ToLower()].actions[i].total.ToString();
 
             }
         }
@@ -179,10 +179,10 @@ namespace WoDCharacterCreator
             new_x = name_form.Width;
             num = create_num(String.Format("num_{0}", this.name), x + new_x + (80 / 2 - 16) + (x_inc * 1), y, skillsContainer, eh);
             mod_form = create_label(String.Format("lbl_{0}_mod", this.name),
-                    character.skill_list[this.name].mod.ToString(),
+                    character.skill_list[this.name.ToLower()].mod.ToString(),
                     x + new_x + (x_inc * 3), y, skillsContainer);
             total_form = create_label(String.Format("lbl_{0}_total", this.name),
-                    character.skill_list[this.name].total.ToString(),
+                    character.skill_list[this.name.ToLower()].total.ToString(),
                     x + new_x + (x_inc * 4), y, skillsContainer);
 
             foreach (ActionWithForm action in this.actions)

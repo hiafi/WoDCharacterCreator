@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<powers>
+  <animalism>
+    <power>
+      <name>Feral Whispers</name>
+      <rank>1</rank>
+      <cost>0</cost>
+      <attribute>manipulation</attribute>
+      <skill>animal ken</skill>
+      <description></description>
+    </power>
+  </animalism>
+</powers>

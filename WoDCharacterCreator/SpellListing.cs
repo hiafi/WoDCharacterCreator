@@ -20,7 +20,7 @@ namespace WoDCharacterCreator
         const int desc_width = 600;
         public const int total_height = (height * 2 + desc_height);
 
-        public SpellListing(MageSpell spell, int x, int y)
+        public SpellListing(MageSpell spell, int x, int y, int dicepool = 0)
         {
             this.spell = spell;
             this.x = x;
@@ -31,10 +31,16 @@ namespace WoDCharacterCreator
             lbl_name.Text = spell.name;
             lbl_dicepool = new Label();
             lbl_dicepool.SetBounds(this.x, this.y+16, width, height);
-            lbl_dicepool.Text = String.Format("{0}+{1}+{2}", cap.ToTitleCase(spell.attribute), cap.ToTitleCase(spell.skill), Enum.GetName(typeof(Arcana), (int)spell.arcana));
+            lbl_dicepool.Text = String.Format("{0}+{1}+{2}: {3}", cap.ToTitleCase(spell.attribute), cap.ToTitleCase(spell.skill), Enum.GetName(typeof(Arcana), (int)spell.arcana), dicepool);
             lbl_description = new Label();
             lbl_description.SetBounds(this.x, this.y+32, desc_width, desc_height);
             lbl_description.Text = spell.desc;
+        }
+
+        public void setDicepool(int dicepool)
+        {
+            System.Globalization.TextInfo cap = new System.Globalization.CultureInfo("en-US", false).TextInfo;
+            lbl_dicepool.Text = String.Format("{0}+{1}+{2}: {3}", cap.ToTitleCase(spell.attribute), cap.ToTitleCase(spell.skill), Enum.GetName(typeof(Arcana), (int)spell.arcana), dicepool);
         }
 
         public void AddToControls(Panel pnl, int y)

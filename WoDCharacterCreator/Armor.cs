@@ -17,7 +17,7 @@ namespace WoDCharacterCreator
 
         public int melee_rating
         {
-            get { return this.armor_rating_general }
+            get { return this.armor_rating_general; }
         }
     }
 }

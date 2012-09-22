@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,6 +61,7 @@
     <Compile Include="MagePath.cs" />
     <Compile Include="MageSpell.cs" />
     <Compile Include="Merit.cs" />
+    <Compile Include="MeritListing.cs" />
     <Compile Include="MeritWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,11 +77,17 @@
       <DependentUpon>SpellForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SpellListing.cs" />
+    <Compile Include="VampClan.cs" />
+    <Compile Include="VampCovenant.cs" />
+    <Compile Include="VampPower.cs" />
     <Compile Include="Weapons.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="VirtueVice.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeritWindow.resx">
+      <DependentUpon>MeritWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -102,9 +112,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Armor.xml" />
+    <Content Include="bin\Debug\Armor.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\Debug\MeleeWeapons.xml" />
-    <Content Include="bin\Debug\Merits.xml" />
+    <Content Include="bin\Debug\Merits.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\Debug\RangedWeapons.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -112,6 +126,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="bin\Debug\Spells.xml" />
+    <Content Include="bin\Debug\VampirePower.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\Debug\VirtueVice.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

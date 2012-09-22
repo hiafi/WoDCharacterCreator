@@ -3,7 +3,52 @@
   <merit>
     <name>Common Sense</name>
     <cost>4</cost>
-    <description>The storyteller can make a Wits + Composure roll once per chapter for your character
-    to see if you are about to embark on a disastrous course of action</description>
+    <description>The storyteller can make a Wits + Composure roll once per chapter for your character to see if you are about to embark on a disastrous course of action</description>
+  </merit>
+  <merit>
+    <name>Fighting Style: Boxing</name>
+    <cost>1</cost>
+    <prereq>
+      <attr>strength</attr>
+      <level>3</level>
+    </prereq>
+    <prereq>
+      <attr>stamina</attr>
+      <level>2</level>
+    </prereq>
+    <prereq>
+      <skill>brawl</skill>
+      <level>2</level>
+    </prereq>
+    <description>Your character is trained in the art of boxing, able to deliver swift, powerful punches and duck and weave away from opponents attacks.</description>
+    <rank>
+      <level>1</level>
+      <name>Body Blow</name>
+      <description>Your character can deliver powerful blows that leave opponents reeling and grasping for air.
+      if successes inflicted in a single Brawl attack equal or exceed a target's size, the victim loses his next action.</description>
+    </rank>
+    <rank>
+      <level>2</level>
+      <name>Dodge and Weave</name>
+      <description>Your character is trained to instinctively duck and evade an opponent's blows, use the higher of your characters Dexterity or Wits to determine your defense when dealing with brawl based attacks.</description>
+    </rank>
+    <rank>
+      <level>3</level>
+      <name>Combination Blows</name>
+      <description>You can make two brawl attacks agaisnt the same target in a single action, the second attack suffers a -1 penalty
+      Drawback: You cannot use your defense against attacks that occur earlier in the iniative roster</description>
+    </rank>
+    <rank>
+      <level>4</level>
+      <name>Haymaker</name>
+      <description>You can preform powerful blows capable of knocking an opponent unconscious. A single brawl attack that equals or exceeds the target's size in damage might knock them unconscious. 
+        The victim may roll a stamina roll, if they succeed, they are stunned due to body blow, if they fail they are unconcious for the amount of damage you did turns.</description>
+    </rank>
+    <rank>
+      <level>5</level>
+      <name>Brutal Blow</name>
+      <description>You may deal leathal damage with your fists instead of bashing damage.
+        Drawback: Spend one Willpower per Brutal Blow.</description>
+    </rank>
   </merit>
 </merits>

@@ -16,14 +16,11 @@ namespace WoDCharacterCreator
         public SpellForm()
         {
             InitializeComponent();
-
             foreach (string arcana in Enum.GetNames(typeof(Arcana)))
             {
                 cb_spell_order.Items.Add(arcana);
                 cb_spell_order.SelectedIndex = 0;
             }
-            
-            
         }
 
         public SpellForm(Character character)
@@ -43,7 +40,7 @@ namespace WoDCharacterCreator
             lbl_spell_action.Text = (spell.extended == true) ? "Extended" : "Instant";
             lbl_spell_dp.Text = String.Format("Dicepool:\n{0} + {1} + {2}\nTotal: {3}", 
                 cap.ToTitleCase(spell.attribute), cap.ToTitleCase(spell.skill), Enum.GetName(typeof(Arcana), cb_spell_order.SelectedIndex),
-                (int)character.GetValue(spell.attribute) + character.skill_list[cap.ToTitleCase(spell.skill)].rank + character.mage.arcana[cb_spell_order.SelectedIndex]);
+                (int)character.GetValue(spell.attribute) + character.skill_list[spell.skill.ToLower()].rank + character.mage.arcana[cb_spell_order.SelectedIndex]);
             lbl_spell_description.Text = spell.desc;
         }
 
@@ -52,7 +49,7 @@ namespace WoDCharacterCreator
             list_spells.Items.Clear();
             foreach (MageSpell spell in MageSpellList.spell_list[cb_spell_order.SelectedIndex])
             {
-                list_spells.Items.Add(spell.name);
+                list_spells.Items.Add(String.Format("{0} - {1}", spell.rank, spell.name));
             }
             if (list_spells.Items.Count > 0)
             {

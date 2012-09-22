@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WoDCharacterCreator
 {
-    class VirtueVice
+    public class VirtueVice
     {
         public string name = "";
         public string effect = "";

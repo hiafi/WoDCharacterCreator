@@ -24,7 +24,12 @@ namespace WoDCharacterCreator
         List<MagePath> path_list;
         List<MageOrder> mage_order_list;
 
+        List<VampClan> clan_list;
+        List<VampCovenant> covenant_list;
+
         List<SpellListing> spell_forms;
+
+        List<MeritListing> merit_list;
 
         public charactor_creator()
         {
@@ -33,10 +38,25 @@ namespace WoDCharacterCreator
             init_skills();
             init_vice_virtues();
             init_combat();
+            init_merits();
             init_mage();
+            init_vamp();
+            
             tab_main.TabPages.Remove(mageView);
             tab_main.TabPages.Remove(vampireView);
+            tab_main.TabPages.Remove(equipmentView);
+            MeritList.init();
             MageSpellList.init();
+            VampPowerList.init();
+            character.is_mage = false;
+            character.is_vamp = false;
+
+            updateAttributes();
+            updateAdvantages();
+            updateSkills();
+            updateCombat();
+            updateMage();
+            updateVampire();
         }
 
         #region File Functions
@@ -46,9 +66,23 @@ namespace WoDCharacterCreator
         }
         #endregion
 
-        #region Form1 Update Form Fields
-        
-        private void updateSkills()
+        #region Update Values
+
+        private void updateAttributeValues()
+        {
+            character.name = input_Name.Text;
+            character.intelligence = (int)num_attr_int.Value;
+            character.wits = (int)num_attr_wits.Value;
+            character.resolve = (int)num_attr_resolve.Value;
+            character.strength = (int)num_attr_strength.Value;
+            character.dexterity = (int)num_attr_dexterity.Value;
+            character.stamina = (int)num_attr_stamina.Value;
+            character.presence = (int)num_attr_presence.Value;
+            character.manipulation = (int)num_attr_manipulation.Value;
+            character.composure = (int)num_attr_composure.Value;
+        }
+
+        private void updateSkillValues()
         {
             character.skill_spent_mental_dots = 0;
             character.skill_spent_physical_dots = 0;
@@ -56,7 +90,7 @@ namespace WoDCharacterCreator
             foreach (SkillWithForm skill in skill_list)
             {
                 skill.UpdateForm(character);
-                
+
                 if (skill.type == AttrType.Mental)
                 {
                     character.skill_spent_mental_dots += (int)skill.num.Value + (((int)skill.num.Value >= 5) ? 1 : 0);
@@ -70,7 +104,37 @@ namespace WoDCharacterCreator
                     character.skill_spent_social_dots += (int)skill.num.Value + (((int)skill.num.Value >= 5) ? 1 : 0);
                 }
             }
+        }
 
+        private void updateMeritsValues()
+        {
+            character.merits_spent = 0;
+            foreach (Tuple<int, Merit> merit in character.merit_list)
+            {
+                character.merits_spent += merit.Item2.cost * merit.Item1;
+            }
+        }
+
+        private void updateMageValues()
+        {
+            updateMeritsValues();
+            character.merits_spent += ((int)num_mage_gnosis.Value - 1) * 3;
+        }
+
+        private void updateVampireValues()
+        {
+            updateMeritsValues();
+            character.merits_spent += ((int)num_vamp_blood_potency.Value - 1) * 3;
+        }
+
+        #endregion
+
+        #region Form1 Update Forms
+
+        private void updateSkills()
+        {
+
+            updateSkillValues();
             lbl_skill_mental.Text = String.Format("{0} / {1}", character.skill_mental_dots - character.skill_spent_mental_dots, character.skill_mental_dots);
             lbl_skill_physical.Text = String.Format("{0} / {1}", character.skill_physical_dots - character.skill_spent_physical_dots, character.skill_physical_dots);
             lbl_skill_social.Text = String.Format("{0} / {1}", character.skill_social_dots - character.skill_spent_social_dots, character.skill_social_dots);
@@ -97,10 +161,10 @@ namespace WoDCharacterCreator
 
         private void updateCombat()
         {
-            lbl_combat_brawl.Text = String.Format("Brawl: {0}", character.strength + character.skill_list["Brawl"].total);
-            lbl_combat_weaponry.Text = String.Format("Weaponry: {0}", character.strength + character.skill_list["Weaponry"].total);
-            lbl_combat_firearms.Text = String.Format("Firearms: {0}", character.dexterity + character.skill_list["Firearms"].total);
-            lbl_combat_thrown.Text = String.Format("Thrown: {0}", character.dexterity + character.skill_list["Athletics"].total);
+            lbl_combat_brawl.Text = String.Format("Brawl: {0}", character.strength + character.skill_list["brawl"].total);
+            lbl_combat_weaponry.Text = String.Format("Weaponry: {0}", character.strength + character.skill_list["weaponry"].total);
+            lbl_combat_firearms.Text = String.Format("Firearms: {0}", character.dexterity + character.skill_list["firearms"].total);
+            lbl_combat_thrown.Text = String.Format("Thrown: {0}", character.dexterity + character.skill_list["athletics"].total);
 
             if (cb_combat_armor.SelectedIndex >= 0)
             {
@@ -114,7 +178,7 @@ namespace WoDCharacterCreator
                 lbl_combat_melee_damage.Text = String.Format("Damage: {0}", melee_weapon_list[cb_combat_melee.SelectedIndex].damage);
                 lbl_combat_melee_total.Text = String.Format("Total Dice Pool: {0}", 
                     melee_weapon_list[cb_combat_melee.SelectedIndex].damage + character.strength + 
-                    ((melee_weapon_list[cb_combat_melee.SelectedIndex].brawl) ? (character.skill_list["Brawl"].total) : (character.skill_list["Weaponry"].total)));
+                    ((melee_weapon_list[cb_combat_melee.SelectedIndex].brawl) ? (character.skill_list["brawl"].total) : (character.skill_list["weaponry"].total)));
             }
 
             if (combo_combat_ranged.SelectedIndex >= 0)
@@ -122,7 +186,7 @@ namespace WoDCharacterCreator
                 lbl_combat_range_damage.Text = String.Format("Damage: {0}", ranged_weapon_list[combo_combat_ranged.SelectedIndex].damage);
                 lbl_combat_range_range.Text = String.Format("Range (+0/-2/-4): {0}/{1}/{2}", ranged_weapon_list[combo_combat_ranged.SelectedIndex].range, ranged_weapon_list[combo_combat_ranged.SelectedIndex].range * 2, ranged_weapon_list[combo_combat_ranged.SelectedIndex].range*4);
                 //lbl_combat_range_damage.Text = String.Format("Damage: {0}", ranged_weapon_list[combo_combat_ranged.SelectedIndex].damage);
-                lbl_combat_range_total.Text = String.Format("Total Dice Pool: {0}", character.dexterity + character.skill_list["Firearms"].total + ranged_weapon_list[combo_combat_ranged.SelectedIndex].damage);
+                lbl_combat_range_total.Text = String.Format("Total Dice Pool: {0}", character.dexterity + character.skill_list["firearms"].total + ranged_weapon_list[combo_combat_ranged.SelectedIndex].damage);
             }
         }
 
@@ -137,19 +201,41 @@ namespace WoDCharacterCreator
 
         private void updateAttributes()
         {
-            character.intelligence = (int)num_attr_int.Value;
-            character.wits = (int)num_attr_wits.Value;
-            character.resolve = (int)num_attr_resolve.Value;
-            character.strength = (int)num_attr_strength.Value;
-            character.dexterity = (int)num_attr_dexterity.Value;
-            character.stamina = (int)num_attr_stamina.Value;
-            character.presence = (int)num_attr_presence.Value;
-            character.manipulation = (int)num_attr_manipulation.Value;
-            character.composure = (int)num_attr_composure.Value;
+            updateAttributeValues();
+        }
+
+        private void updateMerits()
+        {
+            updateMeritsValues();
+            if (character.is_mage)
+            {
+                updateMageValues();
+            }
+            if (character.is_vamp)
+            {
+                updateVampireValues();
+            }
+            lbl_merits.Text = String.Format("Merits: {0}/{1}", character.merits_dots - character.merits_spent, character.merits_dots);
+            int y = 0;
+            foreach (MeritListing merit in merit_list)
+            {
+                merit.Draw(panel_merit_merits, y);
+                y += merit.height + 8;
+            }
+            if (character.is_mage)
+            {
+                lbl_mage_merits.Text = String.Format("Merits Left: {0}", character.merits_dots - character.merits_spent);
+            }
+            if (character.is_mage)
+            {
+                //lbl_mage_merits.Text = String.Format("Merits Left: {0}", character.merits_dots - character.merits_spent);
+            }
         }
 
         private void updateMage()
         {
+            updateMageValues();
+            updateMerits();
             int index = 0;
             foreach (Control control in group_mage_arcanas.Controls)
             {
@@ -166,6 +252,59 @@ namespace WoDCharacterCreator
                 spell.AddToControls(panel_mage_spells, y);
                 y += SpellListing.total_height;
             }
+            
+        }
+
+        private void updateVampire()
+        {
+            updateVampireValues();
+            updateMerits();
+            if (cb_vamp_clan.SelectedIndex >= 0)
+            {
+                lbl_vamp_clan.Text = String.Format("Clan Disciplines:\n{0}\n{1}\n{2}\n\nAttributes\n{3}\n{4}", clan_list[cb_vamp_clan.SelectedIndex].disc1,
+                    clan_list[cb_vamp_clan.SelectedIndex].disc2, clan_list[cb_vamp_clan.SelectedIndex].disc3, clan_list[cb_vamp_clan.SelectedIndex].attr1, clan_list[cb_vamp_clan.SelectedIndex].attr2);
+            }
+            
+        }
+
+        private void updateVampirePowers()
+        {
+            int y = 0;
+            panel_vamp_powers.Controls.Clear();
+            for (int i = 0; i < character.vampire.discipline.Length; i++)
+            {
+                for (int j = 0; j < character.vampire.discipline[i]; j++)
+                {
+                    Label lbl = new Label();
+                    lbl.Text = VampPowerList.power_list[i][j].name;
+                    lbl.SetBounds(0, y, panel_vamp_powers.Width - 32, 20);
+                    y += 20;
+                    panel_vamp_powers.Controls.Add(lbl);
+                    lbl = new Label();
+                    lbl.Text = String.Format("{0} + {1} + {2}", VampPowerList.power_list[i][j].attr, VampPowerList.power_list[i][j].skill, 
+                        Enum.GetName(typeof(Discipline), i));
+                    lbl.SetBounds(0, y, panel_vamp_powers.Width - 32, 20);
+                    y += 20;
+                    panel_vamp_powers.Controls.Add(lbl);
+                    lbl = new Label();
+                    lbl.Text = VampPowerList.power_list[i][j].description;
+                    lbl.SetBounds(0, y, panel_vamp_powers.Width - 32, 64);
+                    y += 64;
+                    panel_vamp_powers.Controls.Add(lbl);
+                }
+            }
+        }
+
+        private void updateVampireCreation()
+        {
+            for (int i = 0; i < character.vampire.discipline.Length; i++)
+            {
+                character.vampire.discipline[i] = 0;
+            }
+            character.vampire.discipline[cb_vamp_disc1.SelectedIndex] += 1;
+            character.vampire.discipline[cb_vamp_disc2.SelectedIndex] += 1;
+            character.vampire.discipline[cb_vamp_disc3.SelectedIndex] += 1;
+            updateVampirePowers();
         }
 
         #endregion
@@ -292,14 +431,32 @@ namespace WoDCharacterCreator
         {
             tab_main.TabPages.Remove(mageView);
             tab_main.TabPages.Remove(vampireView);
+            character.is_mage = false;
+            character.is_vamp = false;
             if (rb_show_mage.Checked)
             {
                 tab_main.TabPages.Add(mageView);
+                character.is_mage = true;
+                updateMage();
             }
             if (rb_show_vampire.Checked)
             {
                 tab_main.TabPages.Add(vampireView);
+                character.is_vamp = true;
+                updateVampire();
             }
+        }
+
+        private void combo_virtue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbl_virtue_effect.Text = virtue_list[combo_virtue.SelectedIndex].effect;
+            character.virtue = virtue_list[combo_virtue.SelectedIndex];
+        }
+
+        private void combo_vice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbl_vice_effect.Text = vice_list[combo_vice.SelectedIndex].effect;
+            character.vice = vice_list[combo_vice.SelectedIndex];
         }
 
         private void cb_show_actions_CheckedChanged(object sender, EventArgs e)
@@ -345,6 +502,7 @@ namespace WoDCharacterCreator
             updateSkills();
         }
 
+        #region Mage
         private void cb_mage_path_SelectedIndexChanged(object sender, EventArgs e)
         {
             character.mage.path = path_list[cb_mage_path.SelectedIndex];
@@ -369,6 +527,7 @@ namespace WoDCharacterCreator
         {
             System.Globalization.TextInfo cap = new System.Globalization.CultureInfo("en-US", false).TextInfo;
             MageOrder order = mage_order_list[cb_mage_order.SelectedIndex];
+            character.mage.order = order;
             lbl_mage_order_spec.Text = String.Format("Rote Specialties\n{0}\n{1}\n{2}\n", 
                 cap.ToTitleCase(order.skill1), cap.ToTitleCase(order.skill2), cap.ToTitleCase(order.skill3));
         }
@@ -433,7 +592,56 @@ namespace WoDCharacterCreator
             updateMage();
         }
 
+        #endregion
 
+        #region Vampire
+        private void cb_vamp_clan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            character.vampire.clan = clan_list[cb_vamp_clan.SelectedIndex];
+            updateVampire();
+        }
+
+        private void cb_vamp_covenant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            character.vampire.covenant = covenant_list[cb_vamp_covenant.SelectedIndex];
+            updateVampire();
+        }
+
+        private void cb_vamp_disc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int count = 0;
+            int disc1 = (int)character.vampire.clan.disc1;
+            int disc2 = (int)character.vampire.clan.disc2;
+            int disc3 = (int)character.vampire.clan.disc3;
+            if (cb_vamp_disc1.SelectedIndex == disc1 || cb_vamp_disc1.SelectedIndex == disc2 || cb_vamp_disc1.SelectedIndex == disc3)
+            {
+                count++;
+            }
+            if (cb_vamp_disc2.SelectedIndex == disc1 || cb_vamp_disc2.SelectedIndex == disc2 || cb_vamp_disc2.SelectedIndex == disc3)
+            {
+                count++;
+            }
+            if (cb_vamp_disc3.SelectedIndex == disc1 || cb_vamp_disc3.SelectedIndex == disc2 || cb_vamp_disc3.SelectedIndex == disc3)
+            {
+                count++;
+            }
+            if (cb_vamp_disc1.SelectedIndex >= 0 && cb_vamp_disc2.SelectedIndex >= 0 && cb_vamp_disc3.SelectedIndex >= 0)
+            {
+                if (count >= 2)
+                {
+                    updateVampireCreation();
+                }
+                else
+                {
+                    MessageBox.Show("2 of the 3 disciplines must be part of your clan");
+                }
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region update events
         public void updateAttributes(object sender, EventArgs e)
         {
             calc_attribute_dots();
@@ -441,12 +649,27 @@ namespace WoDCharacterCreator
             updateAdvantages();
             updateSkills();
             updateCombat();
+            updateMage();
         }
 
         public void updateSkills(object sender, EventArgs e)
         {
             updateSkills();
             updateCombat();
+            if (character.is_mage)
+            {
+                updateMage();
+            }
+        }
+
+        private void updateMage(object sender, EventArgs e)
+        {
+            updateMage();
+        }
+
+        private void updateVamp(object sender, EventArgs e)
+        {
+            updateVampire();
         }
         #endregion
 
@@ -562,7 +785,7 @@ namespace WoDCharacterCreator
             {
                 XmlElement element = (XmlElement) node;
                 string skill_name = element.GetElementsByTagName("name")[0].InnerText;
-                character.skill_list.Add(skill_name, new PlayerSkill(skill_name, 
+                character.skill_list.Add(skill_name.ToLower(), new PlayerSkill(skill_name, 
                     Skill.StringToAttrType(element.GetElementsByTagName("type")[0].InnerText)));
                 
                 SkillWithForm skill = new SkillWithForm(element.GetElementsByTagName("name")[0].InnerText,
@@ -572,7 +795,7 @@ namespace WoDCharacterCreator
                     XmlElement action_element = (XmlElement)action;
                     skill.AddAction(action_element.GetElementsByTagName("name")[0].InnerText,
                                     action_element.GetElementsByTagName("attribute")[0].InnerText);
-                    character.skill_list[skill_name].actions.Add(new PlayerAction(
+                    character.skill_list[skill_name.ToLower()].actions.Add(new PlayerAction(
                                     action_element.GetElementsByTagName("name")[0].InnerText,
                                     action_element.GetElementsByTagName("attribute")[0].InnerText));
                 }
@@ -655,18 +878,63 @@ namespace WoDCharacterCreator
                 cb_mage_arcana12.Items.Add(arcana);
                 
             }
+            
+        }
+
+        private void init_merits()
+        {
+            merit_list = new List<MeritListing>();
+        }
+
+        private void init_vamp()
+        {
+            clan_list = new List<VampClan>();
+            clan_list.Add(new VampClan("Daeva", "dexterity", "manipulation", Discipline.Celerity, Discipline.Majesty, Discipline.Vigor, 
+                ""));
+            clan_list.Add(new VampClan("Gangrel", "composure", "stamina", Discipline.Animalism, Discipline.Protean, Discipline.Resilience, 
+                ""));
+            clan_list.Add(new VampClan("Mekhet", "intelligence", "wits", Discipline.Auspex, Discipline.Celerity, Discipline.Obfuscate, 
+                ""));
+            clan_list.Add(new VampClan("Nosferatu", "composure", "strength", Discipline.Nightmare, Discipline.Obfuscate, Discipline.Vigor, 
+                ""));
+            clan_list.Add(new VampClan("Ventrue", "presence", "resolve", Discipline.Animalism, Discipline.Dominate, Discipline.Resilience, 
+                ""));
+
+
+            covenant_list = new List<VampCovenant>();
+            covenant_list.Add(new VampCovenant("The Carthians", 
+                "Members may purchase the Allies, Contacts, haven and Herd Merits at half the normal exp cost (round up) (Does not apply to character creation)", 
+                ""));
+            covenant_list.Add(new VampCovenant("The Circle of the Crone",
+                "Members may learn the discipline of Cruac.",
+                ""));
+            covenant_list.Add(new VampCovenant("The Invictus",
+                "Members may purchase the Herd, Mentor, Resources and Retainer merits at half the normal exp cost (round up) (Does not apply to character creation)",
+                ""));
+            covenant_list.Add(new VampCovenant("The Lancea Sanctum",
+                "Members may learn the discipline of Theban Sorcery",
+                ""));
+            covenant_list.Add(new VampCovenant("The Carthians",
+                "Members may learn the Coils of the Dragon",
+                ""));
+
+            foreach (VampClan clan in clan_list)
+            {
+                cb_vamp_clan.Items.Add(clan.name);
+            }
+            foreach (VampCovenant cov in covenant_list)
+            {
+                cb_vamp_covenant.Items.Add(cov.name);
+            }
+            foreach (string disc in Enum.GetNames(typeof(Discipline)))
+            {
+                cb_vamp_disc1.Items.Add(disc.Replace("_", " "));
+                cb_vamp_disc2.Items.Add(disc.Replace("_", " "));
+                cb_vamp_disc3.Items.Add(disc.Replace("_", " "));
+            }
+            
         }
         #endregion
-
-        private void combo_virtue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lbl_virtue_effect.Text = virtue_list[combo_virtue.SelectedIndex].effect;
-        }
-
-        private void combo_vice_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lbl_vice_effect.Text = vice_list[combo_vice.SelectedIndex].effect;
-        }
 
         private void btn_mage_add_spell_Click(object sender, EventArgs e)
         {
@@ -680,5 +948,27 @@ namespace WoDCharacterCreator
             
             form.Dispose();
         }
+
+        private void btn_merit_add_Click(object sender, EventArgs e)
+        {
+            MeritWindow form = new MeritWindow(character);
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                character.merit_list.Add(new Tuple<int, Merit>(form.rank, form.merit));
+                merit_list.Add(new MeritListing(form.merit, form.rank));
+                updateMerits();
+            }
+            form.Dispose();
+        }
+
+        private void createTextFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog form = new SaveFileDialog();
+            form.Filter = "Text Files (*.txt) |*.txt";
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                character.CreateText(form.FileName);
+            }
+        }        
     }
 }

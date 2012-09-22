@@ -27,6 +27,7 @@ namespace WoDCharacterCreator
                     spell.attribute = spell_element.GetElementsByTagName("attribute")[0].InnerText;
                     spell.skill = spell_element.GetElementsByTagName("skill")[0].InnerText;
                     spell.cost = Convert.ToInt32(spell_element.GetElementsByTagName("cost")[0].InnerText);
+                    spell.rank = Convert.ToInt32(spell_element.GetElementsByTagName("rank")[0].InnerText);
                     spell.duration = spell_element.GetElementsByTagName("duration")[0].InnerText;
                     spell.vulgar = spell_element.GetElementsByTagName("vulgar").Count > 0;
                     spell.extended = spell_element.GetElementsByTagName("extended").Count > 0;
@@ -56,6 +57,7 @@ namespace WoDCharacterCreator
     {
         public string name;
         public string practice;
+        public int rank;
         public string attribute;
         public string skill;
         public string resist;
